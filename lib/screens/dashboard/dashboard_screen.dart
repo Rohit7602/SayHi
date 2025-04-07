@@ -12,7 +12,7 @@ import '../settings_menu/settings_controller.dart';
 import 'explore.dart';
 
 class DashboardController extends GetxController {
-  RxInt currentIndex = 0.obs;
+  RxInt currentIndex = 5.obs;
   RxInt unreadMsgCount = 0.obs;
   RxBool isLoading = false.obs;
 
@@ -27,7 +27,7 @@ class DashboardController extends GetxController {
 
 class DashboardScreen extends StatefulWidget {
   bool isHomeView;
-  DashboardScreen({this.isHomeView = false, Key? key}) : super(key: key);
+  DashboardScreen({this.isHomeView = false, super.key});
 
   @override
   DashboardState createState() => DashboardState();
@@ -37,33 +37,25 @@ class DashboardState extends State<DashboardScreen> {
   final DashboardController _dashboardController = Get.find();
   final SettingsController _settingsController = Get.find();
 
-  List<Widget> widgets = [];
+  List<Widget> widgets = [
+    ChatHistory(isDashboard: true),
+    const Reels(
+      needBackBtn: false,
+    ),
+    ContentCreatorView(isComingFromDashboard: true),
+    PackagesScreen(isComingFromDashboard: true),
+    const MyProfile(showBack: false),
+    HomeFeedScreen()
+  ];
   bool hasPermission = false;
 
   @override
   void initState() {
     isAnyPageInStack = true;
 
-    widgets = [
-      ChatHistory(isDashboard: true),
-      // const HomeFeedScreen(),
-
-      // const Explore(),
-      const Reels(
-        needBackBtn: false,
-      ),
-      ContentCreatorView(isComingFromDashboard: true),
-
-      PackagesScreen(isComingFromDashboard: true),
-      // const WatchVideos(),
-      const MyProfile(
-        showBack: false,
-      ),
-    ];
-
     super.initState();
   }
-
+ 
   @override
   Widget build(BuildContext context) {
     return Obx(() => _dashboardController.isLoading.value == true
@@ -78,89 +70,35 @@ class DashboardState extends State<DashboardScreen> {
                 ? Container()
                 : AppScaffold(
                     backgroundColor: AppColorConstants.backgroundColor,
-                    // body:  widgets[_dashboardController.currentIndex.value],
+                    // body: widgets[_dashboardController.currentIndex.value],
 
-                    body: widget.isHomeView
-                        ? [
-                            const HomeFeedScreen(),
-
-                            // const Explore(),
-                            const Reels(
-                              needBackBtn: false,
-                            ),
-                            ContentCreatorView(isComingFromDashboard: true),
-
-                            PackagesScreen(isComingFromDashboard: true),
-                            // const WatchVideos(),
-                            const MyProfile(
-                              showBack: false,
-                            ),
-                          ][_dashboardController.currentIndex.value]
-                        : [
-                            ChatHistory(isDashboard: true),
-                            // const HomeFeedScreen(),
-
-                            // const Explore(),
-                            const Reels(
-                              needBackBtn: false,
-                            ),
-                            ContentCreatorView(isComingFromDashboard: true),
-
-                            PackagesScreen(isComingFromDashboard: true),
-                            // const WatchVideos(),
-                            const MyProfile(
-                              showBack: false,
-                            ),
-                          ][_dashboardController.currentIndex.value],
-
+                    body: IndexedStack(
+                      index: _dashboardController.currentIndex.value,
+                      children: widgets.map((e) {
+                        if (e is HomeFeedScreen) {
+                          return HomeFeedScreen();
+                        } else {
+                          return e;
+                        }
+                      }).toList(),
+                    ),
                     floatingActionButtonLocation:
                         FloatingActionButtonLocation.centerDocked,
-                    // bottomNavigationBar: SizedBox(
-                    //   height: Platform.isIOS ? 100 : 80,
-                    //   width: Get.width,
-                    //   child: BottomBarCreative(
-                    //     iconSize: 25,
-                    //     isFloating: false,
-
-                    //     items: items,
-                    //     backgroundColor: AppColorConstants.cardColor,
-                    //     color: AppColorConstants.iconColor,
-                    //     colorSelected: AppColorConstants.themeColor,
-                    //     indexSelected: _dashboardController.currentIndex.value,
-                    //     // highlightStyle: const HighlightStyle(
-                    //     //     sizeLarge: true,
-                    //     //     background: Colors.red,
-                    //     //     elevation: 3),
-                    //     // isFloating: true,
-                    //     onTap: (index) {
-                    //       _dashboardController.indexChanged(index);
-                    //     },
-                    //     // backgroundSelected: AppColorConstants.themeColor,
-                    //   ),
-                    // ),
-                    // floatingActionButton: Container(
-                    //   padding: EdgeInsets.all(15),
-                    //   height: 50,
-                    //   width: 50,
-                    //   decoration: BoxDecoration(
-                    //       shape: BoxShape.circle, color: Colors.white),
-                    //   child: Image.asset(
-                    //     "assets/Icons/add_post.png",
-                    //     height: 20,
-                    //   ),
-                    // ),
                     bottomNavigationBar: SizedBox(
                       height: Platform.isIOS ? 100 : 80,
                       width: Get.width,
                       child: BottomNavigationBar(
                         iconSize: 25,
                         type: BottomNavigationBarType.fixed,
-                        selectedLabelStyle:
-                            TextStyle(color: AppColorConstants.red),
-                        selectedItemColor: AppColorConstants.red,
-                        selectedIconTheme:
-                            IconThemeData(color: AppColorConstants.red),
-
+                        selectedLabelStyle: TextStyle(
+                            color: checkCurrentIndex(
+                                    _dashboardController.currentIndex.value)
+                                ? AppColorConstants.red
+                                : AppColorConstants.blackColor),
+                        selectedItemColor: checkCurrentIndex(
+                                _dashboardController.currentIndex.value)
+                            ? AppColorConstants.red
+                            : AppColorConstants.blackColor,
                         items: [
                           BottomNavigationBarItem(
                             icon: Image.asset(
@@ -220,26 +158,27 @@ class DashboardState extends State<DashboardScreen> {
                             label: 'Profile',
                           ),
                         ],
-                        backgroundColor: AppColorConstants.cardColor,
-                        // color: AppColorConstants.iconColor,
-                        // colorSelected: AppColorConstants.themeColor,
-                        currentIndex: _dashboardController.currentIndex.value,
-                        // highlightStyle: const HighlightStyle(
-                        //     sizeLarge: true,
-                        //     background: Colors.red,
-                        //     elevation: 3),
-                        // isFloating: true,
+                        backgroundColor: AppColorConstants.whiteColor,
+                        currentIndex:
+                            _dashboardController.currentIndex.value > 4
+                                ? 0
+                                : _dashboardController.currentIndex.value,
                         onTap: (index) {
                           _dashboardController.indexChanged(index);
                         },
-                        // backgroundSelected: AppColorConstants.themeColor,
                       ),
                     ),
                   ));
   }
 
   bool checkCurrentIndex(int index) {
-    return _dashboardController.currentIndex.value == index;
+    if (_dashboardController.currentIndex.value == 5) {
+      return false;
+    } else if (_dashboardController.currentIndex.value == index) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   void onTabTapped(int index) async {

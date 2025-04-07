@@ -458,7 +458,7 @@ class _ReelVideoPlayerState extends State<ReelVideoPlayer> {
 
   void openActionPopup() {
     Get.bottomSheet(Container(
-      color: AppColorConstants.cardColor.darken(),
+      color: AppColorConstants.whiteColor,
       child: widget.reel.user.isMe
           ? Wrap(
               children: [

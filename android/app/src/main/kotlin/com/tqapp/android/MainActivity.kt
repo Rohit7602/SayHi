@@ -1,4 +1,4 @@
-package in.tqapp
+package com.tqapp.android
 
 import io.flutter.embedding.android.FlutterFragmentActivity
 import io.flutter.embedding.engine.FlutterEngine

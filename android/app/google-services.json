@@ -7,17 +7,25 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:74977897109:android:ca84336db08741220c499c",
+        "mobilesdk_app_id": "1:74977897109:android:935a12f7022f8ea10c499c",
         "android_client_info": {
-          "package_name": "in.tqapp"
+          "package_name": "com.tqapp.android"
         }
       },
       "oauth_client": [
         {
-          "client_id": "74977897109-iui7ecbp1452f48e9mtfsfqiiuluish9.apps.googleusercontent.com",
+          "client_id": "74977897109-4nntbtv2fg1q7dk8trh8j94f1qjq8ft7.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "in.tqapp",
+            "package_name": "com.tqapp.android",
+            "certificate_hash": "75747acdcaeed692eee24bc4dd76722b7717064f"
+          }
+        },
+        {
+          "client_id": "74977897109-kljjb58dgt4pmdrb36mdkpklp5tavjpe.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tqapp.android",
             "certificate_hash": "d743e09b66dfee18efaef07a819818d4397cc425"
           }
         },
@@ -37,6 +45,13 @@
             {
               "client_id": "74977897109-m26pa5afulkg0snqrqtj9cq13quf1d0g.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "74977897109-9ckunhd9gks8gnt543lkfo8otgtrvp4g.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "in.tqapp.ios"
+              }
             }
           ]
         }

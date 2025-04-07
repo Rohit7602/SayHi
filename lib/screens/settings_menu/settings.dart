@@ -27,15 +27,16 @@ class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
     return Obx(() => AppScaffold(
-          backgroundColor: AppColorConstants.backgroundColor,
+          // backgroundColor: AppColorConstants.backgroundColor,
+          backgroundColor: AppColorConstants.whiteColor,
           body: Column(
             children: [
-              if (_settingsController.appearanceChanged!.value)
-                Container(),
+              if (_settingsController.appearanceChanged!.value) Container(),
               backNavigationBar(title: settingsString.tr),
               Expanded(
                 child: Container(
-                  color: AppColorConstants.themeColor.withOpacity(0.05),
+                  // color: AppColorConstants.themeColor.withOpacity(0.05),
+                  color: AppColorConstants.whiteColor,
                   child: ListView(
                     padding: EdgeInsets.zero,
                     children: [
@@ -78,8 +79,7 @@ class _SettingsState extends State<Settings> {
                           if (_settingsController
                               .setting.value!.enableDarkLightModeSwitch)
                             darkModeTile(),
-                          if (_settingsController
-                                      .setting.value!.iosAppLink !=
+                          if (_settingsController.setting.value!.iosAppLink !=
                                   null ||
                               _settingsController
                                       .setting.value!.androidAppLink !=
@@ -103,8 +103,7 @@ class _SettingsState extends State<Settings> {
                           addTileEvent(deleteAccountString.tr, () {
                             AppUtil.showNewConfirmationAlert(
                                 title: deleteAccountString.tr,
-                                subTitle:
-                                    areYouSureToDeleteAccountString.tr,
+                                subTitle: areYouSureToDeleteAccountString.tr,
                                 cancelHandler: () {
                                   Get.back();
                                 },
@@ -112,6 +111,7 @@ class _SettingsState extends State<Settings> {
                                   _settingsController.deleteAccount();
                                 });
                           }, false),
+
                           /// kaushiki kumari ( 29th march 2025 )
                           // addTileEvent(createdByString.tr, () async {
                           //   await launchUrl(Uri.parse(

@@ -79,6 +79,9 @@ class AppColorConstants {
                   'FFFFFF')
           .darken(0.05);
 
+  static Color get blackColor => Colors.black;
+  static Color get whiteColor => Colors.white;
+
   static Color get dividerColor => isDarkMode
       ? const Color(0xFFFFFFFF).withOpacity(0.4)
       : Colors.grey.withOpacity(0.7);

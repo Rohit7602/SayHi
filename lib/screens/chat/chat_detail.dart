@@ -5,6 +5,7 @@ import 'package:foap/helper/file_extension.dart';
 import 'package:foap/helper/imports/common_import.dart';
 import 'package:focused_menu/focused_menu.dart';
 import 'package:focused_menu/modals.dart';
+import 'package:giphy_get/giphy_get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:map_launcher/map_launcher.dart';
 import 'package:open_filex/open_filex.dart';
@@ -142,7 +143,7 @@ class _ChatDetailState extends State<ChatDetail> {
             ThemeIconWidget(
               ThemeIcon.backArrow,
               color: AppColorConstants.iconColor,
-              size: 20,
+              size: 30,
             ).p8.ripple(() {
               Timer(const Duration(milliseconds: 500), () {
                 _chatDetailController.clear();
@@ -454,35 +455,20 @@ class _ChatDetailState extends State<ChatDetail> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  GestureDetector(
-                    onTap: () async {
-                      XFile? photo =
-                          await _picker.pickImage(source: ImageSource.camera);
-                      if (photo != null) {
-                        Media media =
-                            await photo.toMedia(GalleryMediaType.photo);
-
-                        _chatDetailController.sendImageMessage(
-                            media: media,
-                            mode: _chatDetailController.actionMode.value,
-                            room: _chatDetailController.chatRoom.value!);
-                      }
-                    },
-                    child: Container(
-                      height: 30,
-                      width: 30,
-                      color: AppColorConstants.themeColor,
-                      child: ThemeIconWidget(
-                        size: 20,
-                        ThemeIcon.camera,
-                        color: Colors.white,
-                      ),
-                    ).circular.ripple(() {
-                      openMediaSharingOptionView();
-                      // chatDetailController
-                      //     .expandCollapseActions();
-                    }),
-                  ),
+                  Container(
+                    height: 30,
+                    width: 30,
+                    color: AppColorConstants.themeColor,
+                    child: ThemeIconWidget(
+                      size: 20,
+                      ThemeIcon.camera,
+                      color: Colors.white,
+                    ),
+                  ).circular.ripple(() {
+                    openCamera();
+                    // chatDetailController
+                    //     .expandCollapseActions();
+                  }),
                   Expanded(
                     child: Row(
                       children: [
@@ -515,7 +501,7 @@ class _ChatDetailState extends State<ChatDetail> {
                                       hintStyle: TextStyle(
                                           fontSize: FontSizes.h6,
                                           fontWeight: TextWeight.regular,
-                                          color: AppColorConstants.themeColor),
+                                          color: AppColorConstants.blackColor),
                                       hintText: pleaseEnterMessageString.tr),
                                 )),
                           ),
@@ -545,11 +531,11 @@ class _ChatDetailState extends State<ChatDetail> {
                             color: Colors.black,
                           ),
                         ),
-                        const SizedBox(
-                          width: 15,
-                        ),
-                        GestureDetector(
-                          onTap: () async {
+                        // const SizedBox(
+                        //   width: 15,
+                        // ),
+                        IconButton(
+                          onPressed: () async {
                             List<XFile> images = await _picker.pickMultiImage();
                             List<Media> medias = [];
                             for (XFile image in images) {
@@ -576,14 +562,27 @@ class _ChatDetailState extends State<ChatDetail> {
                               }
                             }
                           },
-                          child: ThemeIconWidget(
+                          icon: ThemeIconWidget(
                             ThemeIcon.photos,
                             color: Colors.black,
-                            size: 25,
+                            size: 28,
+                          ),
+                        ),
+                        // const SizedBox(
+                        //   width: 15,
+                        // ),
+                        IconButton(
+                          onPressed: () async {
+                            openGiphy();
+                          },
+                          icon: ThemeIconWidget(
+                            ThemeIcon.gif,
+                            color: Colors.black,
+                            size: 28,
                           ),
                         ),
                         const SizedBox(
-                          width: 15,
+                          width: 5,
                         ),
                         Obx(() {
                           return _chatDetailController
@@ -596,9 +595,9 @@ class _ChatDetailState extends State<ChatDetail> {
                                   sendMessage();
                                 })
                               : Container(
-                                  height: 30,
-                                  width: 30,
-                                  color: AppColorConstants.themeColor,
+                                  height: 28,
+                                  width: 28,
+                                  color: AppColorConstants.blackColor,
                                   child: ThemeIconWidget(
                                     ThemeIcon.plusSymbol,
                                     color: Colors.white,
@@ -622,6 +621,42 @@ class _ChatDetailState extends State<ChatDetail> {
         )
       ],
     );
+  }
+
+  void openCamera() async {
+    XFile? photo = await _picker.pickImage(source: ImageSource.camera);
+    if (photo != null) {
+      Media media = await photo.toMedia(GalleryMediaType.photo);
+
+      _chatDetailController.sendImageMessage(
+          media: media,
+          mode: _chatDetailController.actionMode.value,
+          room: _chatDetailController.chatRoom.value!);
+    }
+  }
+
+  openGiphy() async {
+    String randomId = 'hsvcewd78djhbejkd';
+
+    GiphyGif? gif = await GiphyGet.getGif(
+      context: context,
+
+      //Required
+      apiKey: _settingsController.setting.value!.giphyApiKey!,
+      //Required.
+      lang: GiphyLanguage.english,
+      //Optional - Language for query.
+      randomID: randomId,
+      // Optional - An ID/proxy for a specific user.
+      tabColor: Colors.teal, // Optional- default accent color.
+    );
+
+    if (gif != null) {
+      _chatDetailController.sendGifMessage(
+          gif: gif.images!.original!.url,
+          mode: _chatDetailController.actionMode.value,
+          room: _chatDetailController.chatRoom.value!);
+    }
   }
 
   Widget cantChatView() {
@@ -1006,9 +1041,10 @@ class _ChatDetailState extends State<ChatDetail> {
     showModalBottomSheet(
         backgroundColor: Colors.transparent,
         context: context,
+        // enableDrag: true,
+
         isScrollControlled: true,
-        builder: (context) => const FractionallySizedBox(
-            heightFactor: 0.5, child: ChatMediaSharingOptionPopup()));
+        builder: (context) => ChatMediaSharingOptionPopup());
   }
 
   void deleteMessageActionPopup() {

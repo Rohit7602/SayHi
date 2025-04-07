@@ -371,6 +371,7 @@ class PostCardState extends State<PostCard> {
   @override
   Widget build(BuildContext context) {
     return VisibilityDetector(
+      
         key: Key(widget.model.id.toString()),
         onVisibilityChanged: (visibilityInfo) {
           var visiblePercentage = visibilityInfo.visibleFraction * 100;
@@ -406,7 +407,8 @@ class PostCardState extends State<PostCard> {
           ),
           if (widget.model.isMyPost)
             Container(
-              color: AppColorConstants.cardColor.darken(),
+              // color: AppColorConstants.cardColor.darken(),
+              color: AppColorConstants.whiteColor,
               height: 50,
               width: double.infinity,
               child: Row(

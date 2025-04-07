@@ -69,12 +69,12 @@ class _ChatMediaSharingOptionPopupState
           text: filesString.tr,
           contentType: MessageContentType.file));
     }
-    if (_settingsController.setting.value!.enableGifSharingInChat) {
-      mediaTypes.add(SharingMediaType(
-          icon: ThemeIcon.gif,
-          text: gifString.tr,
-          contentType: MessageContentType.gif));
-    }
+    // if (_settingsController.setting.value!.enableGifSharingInChat) {
+    //   mediaTypes.add(SharingMediaType(
+    //       icon: ThemeIcon.gif,
+    //       text: gifString.tr,
+    //       contentType: MessageContentType.gif));
+    // }
     if (_settingsController.setting.value!.enableContactSharingInChat) {
       mediaTypes.add(SharingMediaType(
           icon: ThemeIcon.contacts,
@@ -117,6 +117,8 @@ class _ChatMediaSharingOptionPopupState
     return Container(
       color: AppColorConstants.backgroundColor,
       child: ListView.separated(
+        physics: NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
         itemCount: mediaTypes.length,
         padding: EdgeInsets.all(DesignConstants.horizontalPadding),
         // physics: const NeverScrollableScrollPhysics(),
@@ -124,6 +126,7 @@ class _ChatMediaSharingOptionPopupState
           return SizedBox(
             height: 40,
             child: Row(
+              mainAxisSize: MainAxisSize.min,
               children: [
                 ThemeIconWidget(
                   mediaTypes[index].icon,

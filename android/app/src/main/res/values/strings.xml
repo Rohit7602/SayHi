@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+   
+    <string name="facebook_app_id">1162783635164208</string>
+    <string name="facebook_client_token">9e50e4e01b30f56c1e99d6a97943bf27</string>   
+ 
+
     <!-- <string name="facebook_app_id">your_facebook_app_id</string>
     <string name="facebook_client_token">your_facebook_app_token</string>
     <string name="admob_id">7868768</string>

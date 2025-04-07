@@ -149,7 +149,7 @@ class HomeFeedState extends State<HomeFeedScreen> {
                                   size: 25,
                                 ).ripple(() {
                                   // Get.to(() => const ChatHistory());
-                                  Get.to(() => const HomeFeedScreen());
+                                  // Get.to(() => const HomeFeedScreen());
                                 }),
                                 Obx(() =>
                                     _dashboardController.unreadMsgCount.value ==

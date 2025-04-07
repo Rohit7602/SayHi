@@ -5,7 +5,7 @@
     <application
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
-        android:label="Srkwebapp chatting"
+        android:label="Thank You"
         android:requestLegacyExternalStorage="true"
         tools:replace="android:label">
         <activity
@@ -92,6 +92,12 @@
             android:value="false" />
 
         <meta-data android:name="com.google.android.gms.wallet.api.enabled" android:value="true"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId"
+    android:value="@string/facebook_app_id"/>
+
+<meta-data android:name="com.facebook.sdk.ClientToken"
+    android:value="@string/facebook_client_token"/>
+
     </application>
 
     <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />

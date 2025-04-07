@@ -27,7 +27,7 @@
 //     // }
 
 //     defaultConfig {
-//         applicationId "in.tqapp"
+//         applicationId "com.tqapp.android"
 //         minSdkVersion 24
 //         targetSdkVersion 35
 //         compileSdk 35
@@ -139,7 +139,7 @@ plugins {
 }
 
 android {
-    namespace "com.example.foap"
+    namespace "com.tqapp.android"
     compileSdk flutter.compileSdkVersion
     ndkVersion "26.1.10909125"
 
@@ -154,7 +154,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "in.tqapp"
+        applicationId "com.tqapp.android"
         minSdkVersion 24
         targetSdkVersion 35
         compileSdk 35

@@ -15,7 +15,7 @@ import 'group/open_group_listing.dart';
 
 class ChatHistory extends StatefulWidget {
   bool isDashboard;
-  ChatHistory({this.isDashboard = true, Key? key}) : super(key: key);
+  ChatHistory({this.isDashboard = true, super.key});
 
   @override
   State<ChatHistory> createState() => _ChatHistoryState();
@@ -86,8 +86,11 @@ class _ChatHistoryState extends State<ChatHistory> {
                                   // ThemeIcon.chat,
                                   size: 25,
                                 ).ripple(() {
+                                  setState(() {
+                                    _dashboardController.currentIndex.value = 5;
+                                  });
                                   // Get.to(() => const ChatHistory());
-                                  Get.to(() => const HomeFeedScreen());
+                                  // Get.to(() => const HomeFeedScreen());
                                 }),
                                 Obx(() =>
                                     _dashboardController.unreadMsgCount.value ==

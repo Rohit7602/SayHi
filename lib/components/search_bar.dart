@@ -16,7 +16,7 @@ class SFSearchBar extends StatefulWidget {
   final String? hintText;
 
   const SFSearchBar({
-    Key? key,
+    super.key,
     required this.onSearchCompleted,
     this.onSearchStarted,
     this.onSearchChanged,
@@ -28,7 +28,7 @@ class SFSearchBar extends StatefulWidget {
     this.textStyle,
     this.shadowOpacity,
     this.hintText,
-  }) : super(key: key);
+  });
 
   @override
   State<SFSearchBar> createState() => _SFSearchBarState();
@@ -88,7 +88,7 @@ class _SFSearchBarState extends State<SFSearchBar> {
                 ? ThemeIconWidget(
                     ThemeIcon.search,
                     color: iconColor,
-                    size: 20,
+                    size: 25,
                   ).lP16.ripple(() {
                     if (searchText != null && searchText!.length > 2) {
                       onSearchChanged!(searchText!);
@@ -96,7 +96,6 @@ class _SFSearchBarState extends State<SFSearchBar> {
                   })
                 : Container(),
             Expanded(
-
               child: TextField(
                   autocorrect: false,
                   controller: controller,
@@ -124,7 +123,7 @@ class _SFSearchBarState extends State<SFSearchBar> {
                   decoration: InputDecoration(
                     hintStyle: textStyle ??
                         TextStyle(
-                            fontSize: FontSizes.b3,
+                            fontSize: FontSizes.b2,
                             color: AppColorConstants.mainTextColor),
                     hintText: hintText ?? searchAnythingString.tr,
                     border: InputBorder.none,

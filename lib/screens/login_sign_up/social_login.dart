@@ -158,13 +158,11 @@ class _SocialLoginState extends State<SocialLogin> {
 
     //     break;
     //   case FacebookLoginStatus.cancel:
-    //     AppUtil.showToast(
-    //         message: cancelledByUserString.tr, isSuccess: false);
+    //     AppUtil.showToast(message: cancelledByUserString.tr, isSuccess: false);
     //     break;
     //   case FacebookLoginStatus.error:
     //     AppUtil.showToast(
-    //         message: result.error!.localizedDescription!,
-    //         isSuccess: false);
+    //         message: result.error!.localizedDescription!, isSuccess: false);
     //     break;
     // }
   }

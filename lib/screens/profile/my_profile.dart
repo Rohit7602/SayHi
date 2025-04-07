@@ -84,7 +84,7 @@ class MyProfileState extends State<MyProfile> {
   @override
   Widget build(BuildContext context) {
     return Obx(() => AppScaffold(
-          backgroundColor: AppColorConstants.backgroundColor,
+          backgroundColor: AppColorConstants.whiteColor,
           body: _profileController.user.value == null
               ? Container()
               : Column(
@@ -94,12 +94,11 @@ class MyProfileState extends State<MyProfile> {
                       child: DefaultTabController(
                         length: tabs.length,
                         child: NestedScrollView(
-                          headerSliverBuilder: (BuildContext context,
-                              bool innerBoxIsScrolled) {
+                          headerSliverBuilder:
+                              (BuildContext context, bool innerBoxIsScrolled) {
                             return <Widget>[
                               SliverAppBar(
-                                backgroundColor:
-                                    AppColorConstants.backgroundColor,
+                                backgroundColor: AppColorConstants.whiteColor,
                                 pinned: false,
                                 automaticallyImplyLeading: false,
                                 expandedHeight: headerHeight(),
@@ -109,7 +108,8 @@ class MyProfileState extends State<MyProfile> {
                                 ),
                               ),
                               SliverPersistentHeader(
-                                delegate: SliverAppBarDelegate(SizedBox(
+                                delegate: SliverAppBarDelegate(Container(
+                                    color: AppColorConstants.whiteColor,
                                     height: 50,
                                     child: SMTabBar(
                                         tabs: tabs, canScroll: false))),
@@ -220,8 +220,7 @@ class MyProfileState extends State<MyProfile> {
                           height: 29,
                           text: editProfileString.tr,
                           onPress: () {
-                            Get.to(() => const UpdateProfile())!
-                                .then((value) {
+                            Get.to(() => const UpdateProfile())!.then((value) {
                               loadData();
                             });
                           })
@@ -274,8 +273,7 @@ class MyProfileState extends State<MyProfile> {
                   await SharedPrefs().getAccounts();
               accounts = accounts
                   .where((e) =>
-                      e.userId !=
-                      _userProfileManager.user.value!.id.toString())
+                      e.userId != _userProfileManager.user.value!.id.toString())
                   .toList();
               Get.bottomSheet(LinkedAccountsList(
                 accounts: accounts,
@@ -329,14 +327,10 @@ class MyProfileState extends State<MyProfile> {
                                           .unreadNotificationCount.value
                                           .toString(),
                                       style: const TextStyle(
-                                          fontSize: 8,
-                                          color: Colors.white),
+                                          fontSize: 8, color: Colors.white),
                                       textAlign: TextAlign.center,
                                     ).setPadding(
-                                        top: 2,
-                                        bottom: 2,
-                                        left: 4,
-                                        right: 4),
+                                        top: 2, bottom: 2, left: 4, right: 4),
                                   ),
                                 ).circular)
                         ],
@@ -457,8 +451,7 @@ class MyProfileState extends State<MyProfile> {
     scrollController.addListener(() {
       if (scrollController.position.maxScrollExtent ==
           scrollController.position.pixels) {
-        _profileController
-            .getMentionPosts(_userProfileManager.user.value!.id);
+        _profileController.getMentionPosts(_userProfileManager.user.value!.id);
       }
     });
 
@@ -467,8 +460,7 @@ class MyProfileState extends State<MyProfile> {
         builder: (ctx) {
           List<PostModel> posts = _profileController.mentions;
 
-          return _profileController
-                  .mentionedPostDataWrapper.isLoading.value
+          return _profileController.mentionedPostDataWrapper.isLoading.value
               ? const HomeScreenShimmer()
               : posts.isEmpty
                   ? Center(child: BodyLargeText(noDataString.tr))
@@ -512,8 +504,7 @@ class MyProfileState extends State<MyProfile> {
         builder: (ctx) {
           List<PostModel> posts = _profileController.collaborations;
 
-          return _profileController
-                  .collaborationsDataWrapper.isLoading.value
+          return _profileController.collaborationsDataWrapper.isLoading.value
               ? const HomeScreenShimmer()
               : posts.isEmpty
                   ? Center(child: BodyLargeText(noDataString.tr))

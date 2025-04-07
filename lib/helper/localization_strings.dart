@@ -334,7 +334,7 @@ String enterHighlightNameString = 'Enter highlight name';
 String createString = 'Create';
 
 String searchString = 'Search';
-String searchAnythingString = 'Search anything';
+String searchAnythingString = 'Search';
 String exploreString = 'Explore';
 String searchUsersString = 'Search users';
 
