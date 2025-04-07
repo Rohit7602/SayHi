@@ -19,7 +19,7 @@ class _CoinPackagesWidgetState extends State<CoinPackagesWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: AppColorConstants.backgroundColor,
+      // color: AppColorConstants.backgroundColor,
       child: GetBuilder<SubscriptionPackageController>(
           init: packageController,
           builder: (ctx) {

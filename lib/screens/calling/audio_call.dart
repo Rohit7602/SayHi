@@ -44,9 +44,9 @@ class _AudioCallingScreenState extends State<AudioCallingScreen> {
           backgroundColor: AppColorConstants.backgroundColor,
           body: widget.call.isOutGoing == true
               ? outgoingCallView(isFloating)
-              .hp(DesignConstants.horizontalPadding)
+                  .hp(DesignConstants.horizontalPadding)
               : incomingCallView(isFloating)
-              .hp(DesignConstants.horizontalPadding),
+                  .hp(DesignConstants.horizontalPadding),
         );
       },
       floatingHeight: 150,
@@ -70,11 +70,11 @@ class _AudioCallingScreenState extends State<AudioCallingScreen> {
         builder: (ctx) {
           return agoraCallController.remoteJoined.value == false
               ? Stack(
-            children: [
-              Center(child: _renderRemoteView(isFloating)),
-              _incomingCallBottomPortionWidget(),
-            ],
-          )
+                  children: [
+                    Center(child: _renderRemoteView(isFloating)),
+                    _incomingCallBottomPortionWidget(),
+                  ],
+                )
               : connectedCallView(isFloating);
         });
   }
@@ -85,14 +85,14 @@ class _AudioCallingScreenState extends State<AudioCallingScreen> {
         builder: (ctx) {
           return agoraCallController.remoteJoined.value == false
               ? Column(
-            children: [
-              Expanded(child: _renderRemoteView(isFloating)),
-              const SizedBox(
-                height: 100,
-              ),
-              _bottomPortionWidget(),
-            ],
-          )
+                  children: [
+                    Expanded(child: _renderRemoteView(isFloating)),
+                    const SizedBox(
+                      height: 100,
+                    ),
+                    _bottomPortionWidget(),
+                  ],
+                )
               : connectedCallView(isFloating);
         });
   }
@@ -106,14 +106,14 @@ class _AudioCallingScreenState extends State<AudioCallingScreen> {
         SizedBox(
           height: 70,
           child:
-          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
             ThemeIconWidget(
               ThemeIcon.backArrow,
               color: Colors.white,
               size: 25,
             ).p8.ripple(() {
               // Get.back();
-              PIPView.of(context)!.presentBelow(const DashboardScreen());
+              PIPView.of(context)!.presentBelow(DashboardScreen());
             }),
             const SizedBox(
               width: 25,
@@ -131,9 +131,9 @@ class _AudioCallingScreenState extends State<AudioCallingScreen> {
         children: [
           agoraCallController.reConnectingRemoteView.value == true
               ? Container(
-              color: AppColorConstants.red,
-              child: Center(
-                  child: Heading3Text(
+                  color: AppColorConstants.red,
+                  child: Center(
+                      child: Heading3Text(
                     reConnectingString.tr,
                     color: AppColorConstants.subHeadingTextColor,
                   )))
@@ -149,141 +149,141 @@ class _AudioCallingScreenState extends State<AudioCallingScreen> {
   Widget opponentInfo(bool isFloating) {
     return isFloating
         ? UserAvatarView(
-      user: widget.call.opponent,
-      size: double.infinity,
-      onTapHandler: () {},
-    )
+            user: widget.call.opponent,
+            size: double.infinity,
+            onTapHandler: () {},
+          )
         : Column(
-      children: [
-        const SizedBox(
-          height: 100,
-        ),
-        SizedBox(
-          height: Get.height * 0.5,
-          // color: Colors.yellow,
-          child: Stack(
-            alignment: Alignment.center,
             children: [
-              // SvgPicture.asset(
-              //   'assets/svg/outline/call_bubble_overlay.svg',
-              //   width: Get.width * 0.7,
+              const SizedBox(
+                height: 100,
+              ),
+              SizedBox(
+                height: Get.height * 0.5,
+                // color: Colors.yellow,
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    // SvgPicture.asset(
+                    //   'assets/svg/outline/call_bubble_overlay.svg',
+                    //   width: Get.width * 0.7,
+                    // ),
+                    Container(
+                      color: AppColorConstants.themeColor,
+                      child: UserAvatarView(
+                        user: widget.call.opponent,
+                        size: 150,
+                        onTapHandler: () {},
+                      ).p8,
+                    ).circular,
+                  ],
+                ),
+              ),
+              // const SizedBox(
+              //   height: 50,
               // ),
-              Container(
-                color: AppColorConstants.themeColor,
-                child: UserAvatarView(
-                  user: widget.call.opponent,
-                  size: 150,
-                  onTapHandler: () {},
-                ).p8,
-              ).circular,
+              Heading3Text(
+                widget.call.opponent.userName,
+                weight: TextWeight.bold,
+                color: AppColorConstants.mainTextColor,
+              ),
+              const SizedBox(
+                height: 5,
+              ),
+              agoraCallController.remoteJoined.value == false
+                  ? BodyExtraLargeText(
+                      widget.call.isOutGoing
+                          ? ringingString.tr
+                          : incomingCallString.tr,
+                      weight: TextWeight.medium,
+                      color: AppColorConstants.mainTextColor,
+                    )
+                  : _timerView(),
             ],
-          ),
-        ),
-        // const SizedBox(
-        //   height: 50,
-        // ),
-        Heading3Text(
-          widget.call.opponent.userName,
-          weight: TextWeight.bold,
-          color: AppColorConstants.mainTextColor,
-        ),
-        const SizedBox(
-          height: 5,
-        ),
-        agoraCallController.remoteJoined.value == false
-            ? BodyExtraLargeText(
-          widget.call.isOutGoing
-              ? ringingString.tr
-              : incomingCallString.tr,
-          weight: TextWeight.medium,
-          color: AppColorConstants.mainTextColor,
-        )
-            : _timerView(),
-      ],
-    );
+          );
   }
 
   //Timer Ui
   Widget _timerView() => TimerView(
-    key: _timerKey,
-  );
+        key: _timerKey,
+      );
 
   // Ui & UX For Bottom Portion (Switch Camera,Video On/Off,Mic On/Off)
   Widget _bottomPortionWidget() => Container(
-    margin: const EdgeInsets.only(bottom: 50, left: 35, right: 25),
-    alignment: Alignment.bottomCenter,
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Obx(() => Container(
-          color: agoraCallController.mutedAudio.value
-              ? AppColorConstants.themeColor.withOpacity(0.5)
-              : AppColorConstants.themeColor,
-          height: 80,
-          width: 80,
-          child: ThemeIconWidget(
-            agoraCallController.mutedAudio.value
-                ? ThemeIcon.micOff
-                : ThemeIcon.mic,
-            size: 20,
-            color: Colors.white,
-          ).p16,
-        )).circular.ripple(() {
-          agoraCallController.onToggleMuteAudio();
-        }),
-        const SizedBox(
-          width: 25,
+        margin: const EdgeInsets.only(bottom: 50, left: 35, right: 25),
+        alignment: Alignment.bottomCenter,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Obx(() => Container(
+                  color: agoraCallController.mutedAudio.value
+                      ? AppColorConstants.themeColor.withOpacity(0.5)
+                      : AppColorConstants.themeColor,
+                  height: 80,
+                  width: 80,
+                  child: ThemeIconWidget(
+                    agoraCallController.mutedAudio.value
+                        ? ThemeIcon.micOff
+                        : ThemeIcon.mic,
+                    size: 20,
+                    color: Colors.white,
+                  ).p16,
+                )).circular.ripple(() {
+              agoraCallController.onToggleMuteAudio();
+            }),
+            const SizedBox(
+              width: 25,
+            ),
+            Container(
+              color: AppColorConstants.red,
+              height: 80,
+              width: 80,
+              child: ThemeIconWidget(
+                ThemeIcon.declineCall,
+                size: 30,
+                color: Colors.white,
+              ).p16,
+            ).circular.ripple(() {
+              agoraCallController.onCallEnd(widget.call);
+            }),
+          ],
         ),
-        Container(
-          color: AppColorConstants.red,
-          height: 80,
-          width: 80,
-          child: ThemeIconWidget(
-            ThemeIcon.declineCall,
-            size: 30,
-            color: Colors.white,
-          ).p16,
-        ).circular.ripple(() {
-          agoraCallController.onCallEnd(widget.call);
-        }),
-      ],
-    ),
-  );
+      );
 
   Widget _incomingCallBottomPortionWidget() => Container(
-    margin: const EdgeInsets.only(bottom: 50),
-    alignment: Alignment.bottomCenter,
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Container(
-          color: AppColorConstants.red,
-          height: 80,
-          width: 80,
-          child: ThemeIconWidget(
-            ThemeIcon.declineCall,
-            size: 30,
-            color: Colors.white,
-          ).p16,
-        ).circular.ripple(() {
-          agoraCallController.declineCall(call: widget.call);
-        }),
-        const SizedBox(
-          width: 25,
+        margin: const EdgeInsets.only(bottom: 50),
+        alignment: Alignment.bottomCenter,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Container(
+              color: AppColorConstants.red,
+              height: 80,
+              width: 80,
+              child: ThemeIconWidget(
+                ThemeIcon.declineCall,
+                size: 30,
+                color: Colors.white,
+              ).p16,
+            ).circular.ripple(() {
+              agoraCallController.declineCall(call: widget.call);
+            }),
+            const SizedBox(
+              width: 25,
+            ),
+            Container(
+              color: AppColorConstants.themeColor,
+              height: 80,
+              width: 80,
+              child: ThemeIconWidget(
+                ThemeIcon.acceptCall,
+                size: 30,
+                color: Colors.white,
+              ).p16,
+            ).circular.ripple(() {
+              agoraCallController.initiateAcceptCall(call: widget.call);
+            }),
+          ],
         ),
-        Container(
-          color: AppColorConstants.themeColor,
-          height: 80,
-          width: 80,
-          child: ThemeIconWidget(
-            ThemeIcon.acceptCall,
-            size: 30,
-            color: Colors.white,
-          ).p16,
-        ).circular.ripple(() {
-          agoraCallController.initiateAcceptCall(call: widget.call);
-        }),
-      ],
-    ),
-  );
+      );
 }

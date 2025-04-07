@@ -53,6 +53,9 @@ class _ExploreState extends State<Explore> {
       top: false,
       bottom: false,
       child: AppScaffold(
+        appBar: AppBar(
+          backgroundColor: AppColorConstants.backgroundColor,
+        ),
         backgroundColor: AppColorConstants.backgroundColor,
         body: GestureDetector(
             onTap: () {
@@ -60,9 +63,9 @@ class _ExploreState extends State<Explore> {
             },
             child: Column(
               children: [
-                const SizedBox(
-                  height: 40,
-                ),
+                // const SizedBox(
+                //   height: 40,
+                // ),
                 Row(
                   children: [
                     Expanded(
@@ -81,7 +84,7 @@ class _ExploreState extends State<Explore> {
                 ).setPadding(
                     left: DesignConstants.horizontalPadding,
                     right: DesignConstants.horizontalPadding,
-                    top: 25),
+                    top: 0),
                 Expanded(
                     child: DefaultTabController(
                         length: segments.length,

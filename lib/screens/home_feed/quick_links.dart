@@ -125,7 +125,7 @@ class _QuickLinkWidgetState extends State<QuickLinkWidget> {
                     PermissionUtils.requestPermission(
                         [Permission.camera, Permission.microphone],
                         isOpenSettings: true, permissionGrant: () async {
-                      Get.to(() => const ContentCreatorView());
+                      Get.to(() => ContentCreatorView());
                     }, permissionDenied: () {
                       // AppUtil.showToast(
                       //     message: pleaseAllowAccessToCameraForLiveString.tr,

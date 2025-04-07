@@ -1,14 +1,21 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:foap/components/sm_tab_bar.dart';
+import 'package:foap/controllers/home/home_controller.dart';
 import 'package:foap/helper/imports/chat_imports.dart';
 import 'package:foap/helper/imports/common_import.dart';
+import 'package:foap/screens/content_creator_view.dart';
+import 'package:foap/screens/dashboard/dashboard_screen.dart';
+import 'package:foap/screens/dashboard/explore.dart';
+import 'package:foap/screens/home_feed/home_feed_screen.dart';
 import '../../components/search_bar.dart';
 import '../calling/call_history.dart';
 import '../settings_menu/settings_controller.dart';
 import 'group/open_group_listing.dart';
 
 class ChatHistory extends StatefulWidget {
-  const ChatHistory({Key? key}) : super(key: key);
+  bool isDashboard;
+  ChatHistory({this.isDashboard = true, Key? key}) : super(key: key);
 
   @override
   State<ChatHistory> createState() => _ChatHistoryState();
@@ -20,6 +27,9 @@ class _ChatHistoryState extends State<ChatHistory> {
   final SettingsController _settingsController = Get.find();
 
   List<String> tabs = [privateString.tr, openGroupsString.tr];
+
+  final HomeController _homeController = Get.find();
+  final DashboardController _dashboardController = Get.find();
 
   @override
   void initState() {
@@ -56,25 +66,84 @@ class _ChatHistoryState extends State<ChatHistory> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      ThemeIconWidget(
-                        ThemeIcon.backArrow,
-                      ).ripple(() {
-                        Get.back();
-                      }),
+                      if (!widget.isDashboard)
+                        ThemeIconWidget(
+                          ThemeIcon.backArrow,
+                        ).ripple(() {
+                          Get.back();
+                        }),
                       BodyLargeText(chatsString.tr, weight: TextWeight.medium),
-                      _settingsController.setting.value!.enableAudioCalling ||
-                              _settingsController
-                                  .setting.value!.enableVideoCalling
-                          ? ThemeIconWidget(
-                              ThemeIcon.mobile,
-                              color: AppColorConstants.iconColor,
-                              size: 25,
-                            ).ripple(() {
-                              Get.to(() => const CallHistory());
-                            })
-                          : const SizedBox(
-                              width: 25,
+                      Row(
+                        children: [
+                          SizedBox(
+                            height: 35,
+                            width: 35,
+                            child: Stack(
+                              alignment: Alignment.center,
+                              children: [
+                                ThemeIconWidget(
+                                  ThemeIcon.home,
+                                  // ThemeIcon.chat,
+                                  size: 25,
+                                ).ripple(() {
+                                  // Get.to(() => const ChatHistory());
+                                  Get.to(() => const HomeFeedScreen());
+                                }),
+                                Obx(() =>
+                                    _dashboardController.unreadMsgCount.value ==
+                                            0
+                                        ? Container()
+                                        : Positioned(
+                                            top: 0,
+                                            right: 5,
+                                            child: Container(
+                                              color: AppColorConstants.red,
+                                              height: 10,
+                                              width: 10,
+                                            ).circular,
+                                          ))
+                              ],
                             ),
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          SizedBox(
+                              height: 35,
+                              width: 35,
+                              child: ThemeIconWidget(
+                                ThemeIcon.search,
+                                size: 25,
+                              )).ripple(() {
+                            Get.to(() => const Explore());
+                            // Future.delayed(
+                            //   Duration.zero,
+                            //   () => showGeneralDialog(
+                            //       context: Get.context!,
+                            //       pageBuilder: (context, animation,
+                            //               secondaryAnimation) =>
+                            //           const ContentCreatorView()),
+                            // );
+                          }),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          _settingsController
+                                      .setting.value!.enableAudioCalling ||
+                                  _settingsController
+                                      .setting.value!.enableVideoCalling
+                              ? ThemeIconWidget(
+                                  ThemeIcon.mobile,
+                                  color: AppColorConstants.iconColor,
+                                  size: 25,
+                                ).ripple(() {
+                                  Get.to(() => const CallHistory());
+                                })
+                              : const SizedBox(
+                                  width: 25,
+                                ),
+                        ],
+                      ),
                     ],
                   ).setPadding(
                       left: DesignConstants.horizontalPadding,

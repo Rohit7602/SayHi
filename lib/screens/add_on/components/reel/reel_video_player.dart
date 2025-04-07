@@ -40,8 +40,7 @@ class _ReelVideoPlayerState extends State<ReelVideoPlayer> {
 
   @override
   void didUpdateWidget(covariant ReelVideoPlayer oldWidget) {
-    playVideo =
-        _reelsController.currentViewingReel.value!.id == widget.reel.id;
+    playVideo = _reelsController.currentViewingReel.value!.id == widget.reel.id;
 
     if (playVideo == true) {
       play();
@@ -57,6 +56,7 @@ class _ReelVideoPlayerState extends State<ReelVideoPlayer> {
     super.dispose();
   }
 
+  bool isLikeShow = false;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -67,12 +67,11 @@ class _ReelVideoPlayerState extends State<ReelVideoPlayer> {
             final size = MediaQuery.of(context).size;
 
             // calculate scale for aspect ratio widget
-            var scale = videoPlayerController!.value.aspectRatio /
-                size.aspectRatio;
+            var scale =
+                videoPlayerController!.value.aspectRatio / size.aspectRatio;
 
             // check if adjustments are needed...
-            if (videoPlayerController!.value.aspectRatio <
-                size.aspectRatio) {
+            if (videoPlayerController!.value.aspectRatio < size.aspectRatio) {
               scale = 1 / scale;
             }
             if (snapshot.connectionState == ConnectionState.done) {
@@ -103,8 +102,7 @@ class _ReelVideoPlayerState extends State<ReelVideoPlayer> {
                                 widget.reel.gallery.first.filePath),
                             controller: ChewieController(
                               allowFullScreen: false,
-                              videoPlayerController:
-                                  videoPlayerController!,
+                              videoPlayerController: videoPlayerController!,
                               aspectRatio:
                                   videoPlayerController!.value.aspectRatio,
 
@@ -119,8 +117,7 @@ class _ReelVideoPlayerState extends State<ReelVideoPlayer> {
                                 return Center(
                                   child: Text(
                                     errorMessage,
-                                    style: const TextStyle(
-                                        color: Colors.white),
+                                    style: const TextStyle(color: Colors.white),
                                   ),
                                 );
                               },
@@ -216,8 +213,7 @@ class _ReelVideoPlayerState extends State<ReelVideoPlayer> {
                       )
                   ],
                 ).ripple(() {
-                  Get.to(
-                      () => OtherUserProfile(userId: widget.reel.user.id));
+                  Get.to(() => OtherUserProfile(userId: widget.reel.user.id));
                 }),
                 const SizedBox(
                   height: 10,
@@ -278,8 +274,20 @@ class _ReelVideoPlayerState extends State<ReelVideoPlayer> {
                       children: [
                         InkWell(
                             onTap: () {
+                              if (!widget.reel.isLike) {
+                                setState(() {
+                                  isLikeShow = true;
+                                });
+                              }
+
                               _reelsController.likeUnlikeReel(
                                   post: widget.reel);
+
+                              Future.delayed(Duration(milliseconds: 1500), () {
+                                setState(() {
+                                  isLikeShow = false;
+                                });
+                              });
                               // widget.likeTapHandler();
                             },
                             child: ThemeIconWidget(
@@ -306,11 +314,33 @@ class _ReelVideoPlayerState extends State<ReelVideoPlayer> {
                 const SizedBox(
                   height: 20,
                 ),
+                if (widget.reel.commentsEnabled)
+                  Column(
+                    children: [
+                      ThemeIconWidget(
+                        ThemeIcon.chatIcon,
+                        size: 25,
+                        color: Colors.white,
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      BodyMediumText(
+                        widget.reel.totalComment.formatNumber,
+                        color: Colors.white,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                    ],
+                  ).ripple(() {
+                    openComments();
+                  }),
                 if (widget.reel.sharedPost == null)
                   Column(
                     children: [
                       ThemeIconWidget(
-                        ThemeIcon.share,
+                        ThemeIcon.shareReels,
                         size: 25,
                         color: Colors.white,
                       ),
@@ -334,28 +364,6 @@ class _ReelVideoPlayerState extends State<ReelVideoPlayer> {
                             heightFactor: 0.95,
                             child: SharePost(post: widget.reel)));
                   }),
-                if (widget.reel.commentsEnabled)
-                  Column(
-                    children: [
-                      ThemeIconWidget(
-                        ThemeIcon.message,
-                        size: 25,
-                        color: Colors.white,
-                      ),
-                      const SizedBox(
-                        height: 5,
-                      ),
-                      BodyMediumText(
-                        widget.reel.totalComment.formatNumber,
-                        color: Colors.white,
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                    ],
-                  ).ripple(() {
-                    openComments();
-                  }),
                 if (widget.reel.audio != null)
                   Column(
                     children: [
@@ -366,8 +374,8 @@ class _ReelVideoPlayerState extends State<ReelVideoPlayer> {
                           .borderWithRadius(value: 1, radius: 5)
                           .ripple(() {
                         if (widget.reel.audio != null) {
-                          Get.to(() =>
-                              ReelAudioDetail(audio: widget.reel.audio!));
+                          Get.to(
+                              () => ReelAudioDetail(audio: widget.reel.audio!));
                         }
                       }),
                       const SizedBox(
@@ -377,13 +385,21 @@ class _ReelVideoPlayerState extends State<ReelVideoPlayer> {
                   ),
                 ThemeIconWidget(
                   ThemeIcon.moreVertical,
-                  size: 25,
+                  size: 30,
                   color: Colors.white,
                 ).ripple(() {
                   openActionPopup();
                 })
               ],
-            ))
+            )),
+        if (isLikeShow)
+          Center(
+            child: Icon(
+              Icons.favorite,
+              size: 180,
+              color: Colors.white,
+            ),
+          )
       ],
     );
   }
@@ -393,11 +409,9 @@ class _ReelVideoPlayerState extends State<ReelVideoPlayer> {
       videoPlayerController!.pause();
     }
 
-    videoPlayerController =
-        VideoPlayerController.networkUrl(Uri.parse(url));
+    videoPlayerController = VideoPlayerController.networkUrl(Uri.parse(url));
 
-    initializeVideoPlayerFuture =
-        videoPlayerController!.initialize().then((_) {
+    initializeVideoPlayerFuture = videoPlayerController!.initialize().then((_) {
       setState(() {});
 
       if (playVideo == true) {
@@ -490,8 +504,7 @@ class _ReelVideoPlayerState extends State<ReelVideoPlayer> {
                               post: widget.reel,
                               callback: () {
                                 AppUtil.showToast(
-                                    message:
-                                        reelReportedSuccessfullyString.tr,
+                                    message: reelReportedSuccessfullyString.tr,
                                     isSuccess: true);
                               });
                         },
@@ -514,8 +527,7 @@ class _ReelVideoPlayerState extends State<ReelVideoPlayer> {
                               userId: widget.reel.user.id,
                               callback: () {
                                 AppUtil.showToast(
-                                    message:
-                                        userBlockedSuccessfullyString.tr,
+                                    message: userBlockedSuccessfullyString.tr,
                                     isSuccess: true);
                               });
                         },

@@ -45,18 +45,18 @@ class _ChatMediaSharingOptionPopupState
   }
 
   loadChatSharingOptions() {
-    if (_settingsController.setting.value!.enablePhotoSharingInChat) {
-      mediaTypes.add(SharingMediaType(
-          icon: ThemeIcon.camera,
-          text: cameraString.tr,
-          contentType: MessageContentType.photo));
-    }
-    if (_settingsController.setting.value!.enablePhotoSharingInChat) {
-      mediaTypes.add(SharingMediaType(
-          icon: ThemeIcon.gallery,
-          text: photoString.tr,
-          contentType: MessageContentType.photo));
-    }
+    // if (_settingsController.setting.value!.enablePhotoSharingInChat) {
+    //   mediaTypes.add(SharingMediaType(
+    //       icon: ThemeIcon.camera,
+    //       text: cameraString.tr,
+    //       contentType: MessageContentType.photo));
+    // }
+    // if (_settingsController.setting.value!.enablePhotoSharingInChat) {
+    //   mediaTypes.add(SharingMediaType(
+    //       icon: ThemeIcon.gallery,
+    //       text: photoString.tr,
+    //       contentType: MessageContentType.photo));
+    // }
     if (_settingsController.setting.value!.enableVideoSharingInChat) {
       mediaTypes.add(SharingMediaType(
           icon: ThemeIcon.videoCamera,
@@ -87,12 +87,12 @@ class _ChatMediaSharingOptionPopupState
           text: locationString.tr,
           contentType: MessageContentType.location));
     }
-    if (_settingsController.setting.value!.enableAudioSharingInChat) {
-      mediaTypes.add(SharingMediaType(
-          icon: ThemeIcon.mic,
-          text: audioString.tr,
-          contentType: MessageContentType.audio));
-    }
+    // if (_settingsController.setting.value!.enableAudioSharingInChat) {
+    //   mediaTypes.add(SharingMediaType(
+    //       icon: ThemeIcon.mic,
+    //       text: audioString.tr,
+    //       contentType: MessageContentType.audio));
+    // }
     if (_settingsController.setting.value!.enableDrawingSharingInChat) {
       mediaTypes.add(SharingMediaType(
           icon: ThemeIcon.drawing,

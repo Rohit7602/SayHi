@@ -26,13 +26,12 @@ class _LoadingScreenState extends State<LoadingScreen> {
   @override
   void initState() {
     super.initState();
-
   }
 
   openNextScreen() {
     if (_userProfileManager.isLogin == true) {
       packageController.initiate();
-      Get.offAll(() => const DashboardScreen());
+      Get.offAll(() => DashboardScreen());
       getIt<SocketManager>().connect();
     } else {
       Get.offAll(() => const LoginScreen());

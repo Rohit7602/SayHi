@@ -27,7 +27,7 @@
 //     // }
 
 //     defaultConfig {
-//         applicationId "com.jasspj.sayhi"
+//         applicationId "in.tqapp"
 //         minSdkVersion 24
 //         targetSdkVersion 35
 //         compileSdk 35
@@ -154,7 +154,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.jasspj.sayhi"
+        applicationId "in.tqapp"
         minSdkVersion 24
         targetSdkVersion 35
         compileSdk 35

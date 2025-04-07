@@ -26,7 +26,6 @@ class PostUserInfo extends StatefulWidget {
     required this.removePostHandler,
     required this.blockUserHandler,
     required this.isResharedPost,
-
   });
 
   @override
@@ -109,8 +108,7 @@ class _PostUserInfoState extends State<PostUserInfo> {
                   ),
           ],
         )),
-        if (widget.post.user.followingStatus ==
-            FollowingStatus.notFollowing)
+        if (widget.post.user.followingStatus == FollowingStatus.notFollowing)
           UserFollowUnfollowButton(
             isSmallSized: true,
             controller: _userFollowUnfollowBtnController,
@@ -149,8 +147,7 @@ class _PostUserInfoState extends State<PostUserInfo> {
                 height: 20,
                 width: 20,
                 child: Obx(() => ThemeIconWidget(
-                      postCardController.savedPosts
-                                  .contains(widget.post) ||
+                      postCardController.savedPosts.contains(widget.post) ||
                               widget.post.isSaved
                           ? ThemeIcon.bookMarked
                           : ThemeIcon.bookMark,
@@ -171,7 +168,7 @@ class _PostUserInfoState extends State<PostUserInfo> {
                 height: 20,
                 width: 20,
                 child: ThemeIconWidget(
-                  ThemeIcon.more,
+                  ThemeIcon.moreVertical,
                   color: AppColorConstants.iconColor,
                   size: 25,
                 ),
@@ -311,9 +308,7 @@ class _PostUserInfoState extends State<PostUserInfo> {
 
     clubsController.getClubDetail(widget.post.postedInClub!.id!, (club) {
       Get.to(() => ClubDetail(
-          club: club,
-          needRefreshCallback: () {},
-          deleteCallback: (club) {}));
+          club: club, needRefreshCallback: () {}, deleteCallback: (club) {}));
     });
   }
 
@@ -489,8 +484,7 @@ class CollaboratorsListModal extends StatefulWidget {
   });
 
   @override
-  State<CollaboratorsListModal> createState() =>
-      _CollaboratorsListModalState();
+  State<CollaboratorsListModal> createState() => _CollaboratorsListModalState();
 }
 
 class _CollaboratorsListModalState extends State<CollaboratorsListModal> {
@@ -526,8 +520,8 @@ class _CollaboratorsListModalState extends State<CollaboratorsListModal> {
                         profile: collaborator.user!,
                         viewCallback: () {
                           Get.back();
-                          Get.to(() => OtherUserProfile(
-                              userId: collaborator.user!.id));
+                          Get.to(() =>
+                              OtherUserProfile(userId: collaborator.user!.id));
                         },
                       ).vP8;
               }).toList(),

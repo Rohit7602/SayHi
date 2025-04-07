@@ -1,4 +1,4 @@
-package com.example.foap
+package in.tqapp
 
 import io.flutter.embedding.android.FlutterFragmentActivity
 import io.flutter.embedding.engine.FlutterEngine

@@ -7,7 +7,7 @@ final SettingsController settingsController = Get.find();
 
 class AppConfigConstants {
   // Name of app
-  static String appName = 'srkwebapp chatting';
+  static String appName = 'Thank You';
 
   static String currentVersion = '1.7';
   static const liveAppLink = 'https://www.google.com/';
@@ -66,16 +66,13 @@ class AppColorConstants {
 
   static Color get backgroundColor => isDarkMode
       ? HexColor.fromHex(
-          settingsController.setting.value?.bgColorForDarkTheme ??
-              '202020')
+          settingsController.setting.value?.bgColorForDarkTheme ?? '202020')
       : HexColor.fromHex(
-          settingsController.setting.value?.bgColorForLightTheme ??
-              'FFFFFF');
+          settingsController.setting.value?.bgColorForLightTheme ?? 'FFFFFF');
 
   static Color get cardColor => isDarkMode
       ? HexColor.fromHex(
-              settingsController.setting.value?.bgColorForDarkTheme ??
-                  '202020')
+              settingsController.setting.value?.bgColorForDarkTheme ?? '202020')
           .lighten(0.05)
       : HexColor.fromHex(
               settingsController.setting.value?.bgColorForLightTheme ??
@@ -86,13 +83,11 @@ class AppColorConstants {
       ? const Color(0xFFFFFFFF).withOpacity(0.4)
       : Colors.grey.withOpacity(0.7);
 
-  static Color get borderColor => isDarkMode
-      ? Colors.white.withOpacity(0.9)
-      : Colors.grey.withOpacity(0.2);
+  static Color get borderColor =>
+      isDarkMode ? Colors.white.withOpacity(0.9) : Colors.grey.withOpacity(0.2);
 
-  static Color get disabledColor => isDarkMode
-      ? Colors.grey.withOpacity(0.2)
-      : Colors.grey.withOpacity(0.2);
+  static Color get disabledColor =>
+      isDarkMode ? Colors.grey.withOpacity(0.2) : Colors.grey.withOpacity(0.2);
 
   static Color get shadowColor => isDarkMode
       ? Colors.white.withOpacity(0.2)
@@ -135,8 +130,8 @@ class AppColorConstants {
               .withOpacity(0.8)
       : settingsController.setting.value == null
           ? const Color(0xFFecf0f1)
-          : HexColor.fromHex(settingsController
-                  .setting.value!.textColorForLightTheme!)
+          : HexColor.fromHex(
+                  settingsController.setting.value!.textColorForLightTheme!)
               .withOpacity(0.8);
 }
 

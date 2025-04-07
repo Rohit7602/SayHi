@@ -1,50 +1,42 @@
 {
   "project_info": {
-    "project_number": "787780064793",
-    "firebase_url": "https://sayhi-7baeb-default-rtdb.firebaseio.com",
-    "project_id": "sayhi-7baeb",
-    "storage_bucket": "sayhi-7baeb.appspot.com"
+    "project_number": "74977897109",
+    "project_id": "thank-you-27f0a",
+    "storage_bucket": "thank-you-27f0a.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:787780064793:android:5a1f7eeb987f0f9ac33c88",
+        "mobilesdk_app_id": "1:74977897109:android:ca84336db08741220c499c",
         "android_client_info": {
-          "package_name": "com.jasspj.sayhi"
+          "package_name": "in.tqapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "787780064793-u5uv6equan95fncr65s83afff07l5rbe.apps.googleusercontent.com",
+          "client_id": "74977897109-iui7ecbp1452f48e9mtfsfqiiuluish9.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.jasspj.sayhi",
-            "certificate_hash": "327060e0433948e15bd452d5047b1b1208f045e3"
+            "package_name": "in.tqapp",
+            "certificate_hash": "d743e09b66dfee18efaef07a819818d4397cc425"
           }
         },
         {
-          "client_id": "787780064793-25h8thipmiob3a0ffn0qeqk2uojbimr7.apps.googleusercontent.com",
+          "client_id": "74977897109-m26pa5afulkg0snqrqtj9cq13quf1d0g.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAnGHpQx6GRdiz8WjRjmsGUWsvk0gtTMPw"
+          "current_key": "AIzaSyBNv1KnKD9iy1QLh8wOnZRvZodVd2A_zlY"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "787780064793-25h8thipmiob3a0ffn0qeqk2uojbimr7.apps.googleusercontent.com",
+              "client_id": "74977897109-m26pa5afulkg0snqrqtj9cq13quf1d0g.apps.googleusercontent.com",
               "client_type": 3
-            },
-            {
-              "client_id": "787780064793-nqjbtv3f2no80jm578dmnaefgtf0cnbp.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.jasspj.sayhi"
-              }
             }
           ]
         }

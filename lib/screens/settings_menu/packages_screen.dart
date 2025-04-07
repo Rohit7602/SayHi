@@ -3,7 +3,8 @@ import 'package:foap/helper/imports/setting_imports.dart';
 import '../../controllers/misc/subscription_packages_controller.dart';
 
 class PackagesScreen extends StatefulWidget {
-  const PackagesScreen({super.key});
+  bool isComingFromDashboard;
+  PackagesScreen({this.isComingFromDashboard = false, super.key});
 
   @override
   PackagesScreenState createState() => PackagesScreenState();
@@ -31,10 +32,16 @@ class PackagesScreenState extends State<PackagesScreen> {
   Widget build(BuildContext context) {
     return AppScaffold(
       backgroundColor: AppColorConstants.backgroundColor,
+      appBar: widget.isComingFromDashboard
+          ? AppBar(
+              centerTitle: true,
+              backgroundColor: AppColorConstants.cardColor,
+              title: Text(packagesString.tr),
+            )
+          : null,
       body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-
-        backNavigationBar( title: packagesString.tr),
-
+        if (!widget.isComingFromDashboard)
+          backNavigationBar(title: packagesString.tr),
         const Expanded(child: CoinPackagesWidget()),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,

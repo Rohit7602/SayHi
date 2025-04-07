@@ -95,11 +95,9 @@ class ProfileController extends GetxController {
     required String city,
   }) {
     if (FormValidator().isTextEmpty(country)) {
-      AppUtil.showToast(
-          message: pleaseEnterCountryString.tr, isSuccess: false);
+      AppUtil.showToast(message: pleaseEnterCountryString.tr, isSuccess: false);
     } else if (FormValidator().isTextEmpty(city)) {
-      AppUtil.showToast(
-          message: pleaseEnterCityString.tr, isSuccess: false);
+      AppUtil.showToast(message: pleaseEnterCityString.tr, isSuccess: false);
     } else {
       Loader.show(status: loadingString.tr);
 
@@ -128,11 +126,9 @@ class ProfileController extends GetxController {
     required String confirmPassword,
   }) {
     if (FormValidator().isTextEmpty(oldPassword)) {
-      AppUtil.showToast(
-          message: enterOldPasswordString.tr, isSuccess: false);
+      AppUtil.showToast(message: enterOldPasswordString.tr, isSuccess: false);
     } else if (FormValidator().isTextEmpty(newPassword)) {
-      AppUtil.showToast(
-          message: enterNewPasswordString.tr, isSuccess: false);
+      AppUtil.showToast(message: enterNewPasswordString.tr, isSuccess: false);
     } else if (FormValidator().isTextEmpty(confirmPassword)) {
       AppUtil.showToast(
           message: enterConfirmPasswordString.tr, isSuccess: false);
@@ -179,8 +175,7 @@ class ProfileController extends GetxController {
     required String phoneNumber,
   }) {
     if (FormValidator().isTextEmpty(phoneNumber)) {
-      AppUtil.showToast(
-          message: enterPhoneNumberString.tr, isSuccess: false);
+      AppUtil.showToast(message: enterPhoneNumberString.tr, isSuccess: false);
     } else {
       Loader.show(status: loadingString.tr);
 
@@ -244,7 +239,7 @@ class ProfileController extends GetxController {
           getMyProfile();
           if (isSigningUp == true) {
             getIt<LocationManager>().postLocation();
-            Get.offAll(() => const DashboardScreen());
+            Get.offAll(() => DashboardScreen());
           } else {
             Future.delayed(const Duration(milliseconds: 1200), () {
               Get.back();
@@ -288,22 +283,19 @@ class ProfileController extends GetxController {
         resultCallback: () {
           _userProfileManager.refreshProfile();
           Loader.dismiss();
-          AppUtil.showToast(
-              message: profileUpdatedString.tr, isSuccess: true);
+          AppUtil.showToast(message: profileUpdatedString.tr, isSuccess: true);
         });
   }
 
   //////////////********** other user profile **************/////////////////
 
   void getOtherUserDetail(
-      {required int userId,
-      required Function(UserModel) completionBlock}) {
+      {required int userId, required Function(UserModel) completionBlock}) {
     UsersApi.getOtherUser(
         userId: userId,
         resultCallback: (result) {
           user.value = result;
-          print(
-              'check demo profile privacy ${user.value!.isPrivateProfile}');
+          print('check demo profile privacy ${user.value!.isPrivateProfile}');
           completionBlock(result);
 
           update();
@@ -324,10 +316,10 @@ class ProfileController extends GetxController {
     update();
 
     UsersApi.followUnfollowUser(
-            isFollowing: this.user.value!.followingStatus ==
-                    FollowingStatus.notFollowing
-                ? false
-                : true,
+            isFollowing:
+                this.user.value!.followingStatus == FollowingStatus.notFollowing
+                    ? false
+                    : true,
             user: user)
         .then((value) {
       this.user.refresh();
@@ -389,8 +381,7 @@ class ProfileController extends GetxController {
         ? FollowingStatus.requested
         : FollowingStatus.following;
     update();
-    UsersApi.followUnfollowUser(isFollowing: true, user: user)
-        .then((value) {
+    UsersApi.followUnfollowUser(isFollowing: true, user: user).then((value) {
       update();
     });
   }
@@ -399,8 +390,7 @@ class ProfileController extends GetxController {
     user.followingStatus = FollowingStatus.notFollowing;
 
     update();
-    UsersApi.followUnfollowUser(isFollowing: false, user: user)
-        .then((value) {
+    UsersApi.followUnfollowUser(isFollowing: false, user: user).then((value) {
       update();
     });
   }
@@ -422,8 +412,7 @@ class ProfileController extends GetxController {
     posts.removeWhere((element) => element.user.id == post.user.id);
     mentions.removeWhere((element) => element.user.id == post.user.id);
     reels.removeWhere((element) => element.user.id == post.user.id);
-    collaborations
-        .removeWhere((element) => element.user.id == post.user.id);
+    collaborations.removeWhere((element) => element.user.id == post.user.id);
 
     posts.refresh();
     mentions.refresh();
@@ -431,8 +420,7 @@ class ProfileController extends GetxController {
     collaborations.refresh();
   }
 
-  void getPosts(
-      {required int userId, required VoidCallback callback}) async {
+  void getPosts({required int userId, required VoidCallback callback}) async {
     if (postDataWrapper.haveMoreData.value == true &&
         totalPages > postDataWrapper.page) {
       if (postDataWrapper.page == 1) {
@@ -502,7 +490,6 @@ class ProfileController extends GetxController {
           });
     }
   }
-
 
   otherUserProfileView(
       {required int refId, required UserViewSourceType viewSource}) {

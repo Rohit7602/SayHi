@@ -23,8 +23,11 @@ class PackageTile extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Heading6Text(package.name,
-                weight: TextWeight.semiBold, color: AppColorConstants.themeColor),
+            // Heading6Text(package.name,
+            //     weight: TextWeight.semiBold, color: AppColorConstants.themeColor),
+            Heading6Text("TTKU",
+                weight: TextWeight.semiBold,
+                color: AppColorConstants.themeColor),
             const SizedBox(
               height: 5,
             ),

@@ -618,8 +618,9 @@ class LanguageStrings {
     "Choose image": "resim seç"
   };
   static var en = {
-    'Support request has been submitted.':'Support request has been submitted.',
-    'All field are required':'All field are required',
+    'Support request has been submitted.':
+        'Support request has been submitted.',
+    'All field are required': 'All field are required',
     "Help": "Help",
     "Back": "Back",
     "About": "About",
@@ -743,7 +744,7 @@ class LanguageStrings {
     "Enter phone number": "Enter phone number",
     "Please enter email": "Please enter email",
     "Please enter phone number": "Please enter phone number",
-    "Please enter message": "Please enter message",
+    "Please enter message": "Message...",
     "Please enter country": "Please enter country",
     "Please enter city": "Please enter city",
     "Please enter paypal id": "Please enter paypal id",
@@ -1148,8 +1149,8 @@ class LanguageStrings {
     "Your": "Your",
     "Recent": "Recent",
     "Go Live": "Go Live",
-    "Live Users":"Live Users",
-    "View Gift":"View Gift",
+    "Live Users": "Live Users",
+    "View Gift": "View Gift",
     "Now on live": "Now on live",
     "Anyone can see who\"s in the club and what they post":
         "Anyone can see who\"s in the club and what they post",
@@ -3715,7 +3716,8 @@ class LanguageStrings {
     "Back": "Retour",
     "About": "À propos de",
     "All": "Tout",
-    "Add something about post": "Ajouter quelque chose à propos de la publication",
+    "Add something about post":
+        "Ajouter quelque chose à propos de la publication",
     "Ok": "D'accord",
     "Submit": "Soumettre",
     "Done": "Fait",
@@ -3766,25 +3768,31 @@ class LanguageStrings {
     "No": "Non",
     "Yes": "Oui",
     "Next": "Prochain",
-    "Please grant the required permission from settings to access this feature.": "Veuillez accorder l'autorisation requise dans les paramètres pour accéder à cette fonctionnalité.",
-    "Please check your internet connection and try again.": "S'il vous plaît, vérifiez votre connexion à internet et réessayez.",
+    "Please grant the required permission from settings to access this feature.":
+        "Veuillez accorder l'autorisation requise dans les paramètres pour accéder à cette fonctionnalité.",
+    "Please check your internet connection and try again.":
+        "S'il vous plaît, vérifiez votre connexion à internet et réessayez.",
     "No data found": "Aucune donnée disponible",
     "Watch Ads": "Regarder les annonces",
-    "By watching Ads, you get to earn coins_value Coin per advert you watch. Click the button to start earning!": "En regardant des publicités, vous gagnez des coins_value Coin par publicité que vous regardez. ",
+    "By watching Ads, you get to earn coins_value Coin per advert you watch. Click the button to start earning!":
+        "En regardant des publicités, vous gagnez des coins_value Coin par publicité que vous regardez. ",
     "No product is available": "Aucun produit n'est disponible",
-    "Some error occurred while performing purchase, please try again later.": "Une erreur s'est produite lors de l'achat, veuillez réessayer plus tard.",
+    "Some error occurred while performing purchase, please try again later.":
+        "Une erreur s'est produite lors de l'achat, veuillez réessayer plus tard.",
     "Store is not available.": "Le magasin n'est pas disponible.",
     "Cancelled by user": "Annulé par l'utilisateur",
     "Face ID": "Identification faciale",
     "Touch ID": "ID tactile",
-    "By signing up, you are acknowledging that you have read, understood and accept our": "En vous inscrivant, vous reconnaissez avoir lu, compris et accepté notre",
+    "By signing up, you are acknowledging that you have read, understood and accept our":
+        "En vous inscrivant, vous reconnaissez avoir lu, compris et accepté notre",
     "Terms of Service": "Conditions d'utilisation",
     "Welcome": "Accueillir",
     "Hi": "Salut",
     "Profile": "Profil",
     "Edit profile": "Editer le profil",
     "Profile updated": "Profil mis à jour",
-    "Minimum withdrawal limit is 50USD": "La limite de retrait minimum est de 50USD",
+    "Minimum withdrawal limit is 50USD":
+        "La limite de retrait minimum est de 50USD",
     "Don’t have an Account ?": "Vous n'avez pas de compte ?",
     "Already have an Account ?": "Vous avez déjà un compte ?",
     "Sign up": "S'inscrire",
@@ -3803,14 +3811,21 @@ class LanguageStrings {
     "Please changed successfully": "S'il vous plaît changé avec succès",
     "We have sent an OTP": "Nous avons envoyé un OTP",
     "Enter OTP": "Entrez OTP",
-    "Wrong OTP, please enter the correct OTP": "Mauvais OTP, veuillez entrer le bon OTP",
+    "Wrong OTP, please enter the correct OTP":
+        "Mauvais OTP, veuillez entrer le bon OTP",
     "Resend OTP": "Renvoyer OTP",
-    "Please enter the one time password sent to your email or phone number to verify your account and change your password": "Veuillez saisir le mot de passe à usage unique envoyé à votre adresse e-mail ou à votre numéro de téléphone pour vérifier votre compte et modifier votre mot de passe",
-    "Let’s help you get back your account": "Nous vous aidons à récupérer votre compte",
-    "Login another account instead": "Connectez-vous à un autre compte à la place",
-    "Please enter the one time password sent to your phone number to verify your phone number": "Veuillez entrer le mot de passe à usage unique envoyé à votre numéro de téléphone pour vérifier votre numéro de téléphone",
-    "Let’s help you to change phone number": "Nous vous aidons à changer de numéro de téléphone",
-    "Kindly fill in your email address": "Merci de renseigner votre adresse email",
+    "Please enter the one time password sent to your email or phone number to verify your account and change your password":
+        "Veuillez saisir le mot de passe à usage unique envoyé à votre adresse e-mail ou à votre numéro de téléphone pour vérifier votre compte et modifier votre mot de passe",
+    "Let’s help you get back your account":
+        "Nous vous aidons à récupérer votre compte",
+    "Login another account instead":
+        "Connectez-vous à un autre compte à la place",
+    "Please enter the one time password sent to your phone number to verify your phone number":
+        "Veuillez entrer le mot de passe à usage unique envoyé à votre numéro de téléphone pour vérifier votre numéro de téléphone",
+    "Let’s help you to change phone number":
+        "Nous vous aidons à changer de numéro de téléphone",
+    "Kindly fill in your email address":
+        "Merci de renseigner votre adresse email",
     "If you didn’t receive code,": "Si vous n'avez pas reçu de code,",
     "Send": "Envoyer",
     "Sent": "Expédié",
@@ -3850,11 +3865,14 @@ class LanguageStrings {
     "Buy in": "Achetez dans",
     "Coins added to your account": "Pièces ajoutées à votre compte",
     "Please enter password": "Veuillez entrer le mot de passe",
-    "Please enter confirm password": "Veuillez saisir le mot de passe de confirmation",
+    "Please enter confirm password":
+        "Veuillez saisir le mot de passe de confirmation",
     "Password does not matched": "Le mot de passe ne correspond pas",
-    "Create an account to our top picks for you!": "Créez un compte pour nos meilleurs choix pour vous!",
+    "Create an account to our top picks for you!":
+        "Créez un compte pour nos meilleurs choix pour vous!",
     "Please enter user name": "Veuillez entrer le nom d'utilisateur",
-    "Please enter valid user name": "Veuillez entrer un nom d'utilisateur valide",
+    "Please enter valid user name":
+        "Veuillez entrer un nom d'utilisateur valide",
     "Enter new password": "Entrez un nouveau mot de passe",
     "Enter confirm password": "Entrez le mot de passe de confirmation",
     "Enter old password": "Entrez l'ancien mot de passe",
@@ -3862,8 +3880,10 @@ class LanguageStrings {
     "Please enter slider name": "Veuillez entrer le nom du curseur",
     "Please enter color name": "Veuillez saisir le nom de la couleur",
     "Please select color": "Veuillez sélectionner la couleur",
-    "User name or password is wrong": "Le nom d'utilisateur ou le mot de passe est erroné",
-    "Please enter a valid phone number": "s'il vous plaît entrer un numéro de téléphone valide",
+    "User name or password is wrong":
+        "Le nom d'utilisateur ou le mot de passe est erroné",
+    "Please enter a valid phone number":
+        "s'il vous plaît entrer un numéro de téléphone valide",
     "Home": "Maison",
     "Dashboard": "Tableau de bord",
     "Top suggested users": "Principaux utilisateurs suggérés",
@@ -3879,8 +3899,10 @@ class LanguageStrings {
     "Slider Name": "Nom du curseur",
     "Home Sliders": "Accueil Curseurs",
     "Request sent": "Demande envoyée",
-    "Such kind of messages are not allowed": "Ce type de messages n'est pas autorisé",
-    "There is some problem, Please try again later": "Il y a un problème, veuillez réessayer plus tard",
+    "Such kind of messages are not allowed":
+        "Ce type de messages n'est pas autorisé",
+    "There is some problem, Please try again later":
+        "Il y a un problème, veuillez réessayer plus tard",
     "Camera": "Caméra",
     "Photo": "Photo",
     "Sent a Photo": "Envoyé une photo",
@@ -3892,7 +3914,8 @@ class LanguageStrings {
     "Export chat": "Exporter le chat",
     "Export chat with media": "Exporter le chat avec les médias",
     "Export chat without media": "Exporter le chat sans média",
-    "Video lengths can not exceed 20 seconds": "La longueur des vidéos ne peut pas dépasser 20 secondes",
+    "Video lengths can not exceed 20 seconds":
+        "La longueur des vidéos ne peut pas dépasser 20 secondes",
     "Sticker": "Autocollant",
     "Sent a Sticker": "Envoyé un autocollant",
     "Gif": "GIF",
@@ -3927,26 +3950,32 @@ class LanguageStrings {
     "Search anything": "Rechercher n'importe quoi",
     "Log Out": "Se déconnecter",
     "Change Password": "Changer le mot de passe",
-    "Are you sure, you want to logout?": "Êtes-vous sûr de vouloir vous déconnecter?",
+    "Are you sure, you want to logout?":
+        "Êtes-vous sûr de vouloir vous déconnecter?",
     "Enter address details": "Entrez les détails de l'adresse",
     "Change Location": "Changer de lieu",
     "Location": "Emplacement",
     "Sent a Location": "Envoyé un lieu",
     "Create new password": "Créer un nouveau mot de passe",
-    "Your new password must be  different from last password": "Votre nouveau mot de passe doit être différent du dernier mot de passe",
+    "Your new password must be  different from last password":
+        "Votre nouveau mot de passe doit être différent du dernier mot de passe",
     "Old password": "Ancien mot de passe",
     "New password": "Nouveau mot de passe",
     "Confirm password": "Confirmez le mot de passe",
     "Password does not match": "Le mot de passe ne correspond pas",
     "Password changed": "Mot de passe changé",
     "Password rules": "Règles de mot de passe",
-    "Your password must be 8 or more characters long": "Votre mot de passe doit comporter 8 caractères ou plus",
+    "Your password must be 8 or more characters long":
+        "Votre mot de passe doit comporter 8 caractères ou plus",
     "Reset password": "Réinitialiser le mot de passe",
     "Please enter ringtone name": "Veuillez entrer le nom de la sonnerie",
-    "Please enter valid email address": "Veuillez saisir une adresse e-mail valide",
+    "Please enter valid email address":
+        "Veuillez saisir une adresse e-mail valide",
     "Email Address": "Adresse e-mail",
-    "Reset password link is sent to your email address": "Le lien de réinitialisation du mot de passe est envoyé à votre adresse e-mail",
-    "Reset password link will be sent to your email address": "Le lien de réinitialisation du mot de passe sera envoyé à votre adresse e-mail",
+    "Reset password link is sent to your email address":
+        "Le lien de réinitialisation du mot de passe est envoyé à votre adresse e-mail",
+    "Reset password link will be sent to your email address":
+        "Le lien de réinitialisation du mot de passe sera envoyé à votre adresse e-mail",
     "Email does not exists": "L'e-mail n'existe pas",
     "Joined": "Rejoint",
     "Join": "Rejoindre",
@@ -4014,14 +4043,18 @@ class LanguageStrings {
     "Post Video": "Publier une vidéo",
     "WINNER ANNOUNCEMENT PENDING": "ANNONCE DU GAGNANT EN ATTENTE",
     "VIEW WINNER": "VOIR LE GAGNANT",
-    "Check your coins and earn more coins": "Vérifiez vos pièces et gagnez plus de pièces",
+    "Check your coins and earn more coins":
+        "Vérifiez vos pièces et gagnez plus de pièces",
     "Manage your photos and albums": "Gérez vos photos et albums",
-    "Your friends are nearby,  find them!": "Vos amis sont à proximité, retrouvez-les !",
-    "Contact our support for quick fixes": "Contactez notre support pour des solutions rapides",
+    "Your friends are nearby,  find them!":
+        "Vos amis sont à proximité, retrouvez-les !",
+    "Contact our support for quick fixes":
+        "Contactez notre support pour des solutions rapides",
     "Track your earnings": "Suivez vos gains",
     "Tune your app settings": "Réglez les paramètres de votre application",
     "Exit the app with this button": "Quittez l'application avec ce bouton",
-    "Frequently asked questions by customers": "Questions fréquemment posées par les clients",
+    "Frequently asked questions by customers":
+        "Questions fréquemment posées par les clients",
     "Support requests": "Demandes d'assistance",
     "Create support requests": "Créer des demandes d'assistance",
     "Find Friends": "Retrouver des amis",
@@ -4048,7 +4081,8 @@ class LanguageStrings {
     "Outgoing": "Sortant",
     "Incoming": "Entrant",
     "Missed": "Manqué",
-    "Are you sure you want to end your call?": "Voulez-vous vraiment mettre fin à votre appel ?",
+    "Are you sure you want to end your call?":
+        "Voulez-vous vraiment mettre fin à votre appel ?",
     "No cancel & return to call": "Pas d'annulation",
     "Yes end call now": "Oui terminer l'appel maintenant",
     "Please wait for joining...": "Veuillez patienter avant de rejoindre...",
@@ -4057,7 +4091,8 @@ class LanguageStrings {
     "typing...": "dactylographie...",
     "Post deleted": "Message supprimé",
     "No post updates found": "Aucune mise à jour de publication trouvée",
-    "Follow your friends to see their post updates": "Suivez vos amis pour voir leurs mises à jour de publication",
+    "Follow your friends to see their post updates":
+        "Suivez vos amis pour voir leurs mises à jour de publication",
     "No user found": "Aucun utilisateur trouvé",
     "No hashtag found": "Aucun hashtag trouvé",
     "No photos found": "Aucune photo trouvée",
@@ -4101,22 +4136,31 @@ class LanguageStrings {
     "Edit Group Info": "Modifier les informations du groupe",
     "All Participants": "Tous les participants",
     "Only Admins": "Seuls les administrateurs",
-    "Choose who can send message in group": "Choisissez qui peut envoyer un message dans le groupe",
+    "Choose who can send message in group":
+        "Choisissez qui peut envoyer un message dans le groupe",
     "Choose who can edit group": "Choisissez qui peut modifier le groupe",
-    "Follow some user to start chat": "Suivez un utilisateur pour démarrer le chat",
+    "Follow some user to start chat":
+        "Suivez un utilisateur pour démarrer le chat",
     "No chat found": "Aucun chat trouvé",
-    "Make some audio/video call with friends": "Passer un appel audio/vidéo avec des amis",
+    "Make some audio/video call with friends":
+        "Passer un appel audio/vidéo avec des amis",
     "No call found": "Aucun appel trouvé",
     "No Story found": "Aucune histoire trouvée",
-    "Post some stories to create highlights": "Publiez des histoires pour créer des moments forts",
+    "Post some stories to create highlights":
+        "Publiez des histoires pour créer des moments forts",
     "No Notification found": "Aucune notification trouvée",
     "Enter text here": "Entrez le texte ici",
     "Delete account": "Supprimer le compte",
-    "Are you sure to delete account, Once account is deleted your all data will be deleted": "Êtes-vous sûr de supprimer le compte, une fois le compte supprimé, toutes vos données seront supprimées",
-    "Please allow access to camera and microphone to start live": "Veuillez autoriser l'accès à la caméra et au microphone pour commencer le direct",
-    "Please allow access to camera and microphone to start video call": "Veuillez autoriser l'accès à la caméra et au microphone pour démarrer l'appel vidéo",
-    "Please allow access to microphone to start audio call": "Veuillez autoriser l'accès au microphone pour démarrer l'appel audio",
-    "Registered successfully, please login to continue": "Enregistré avec succès, veuillez vous connecter pour continuer",
+    "Are you sure to delete account, Once account is deleted your all data will be deleted":
+        "Êtes-vous sûr de supprimer le compte, une fois le compte supprimé, toutes vos données seront supprimées",
+    "Please allow access to camera and microphone to start live":
+        "Veuillez autoriser l'accès à la caméra et au microphone pour commencer le direct",
+    "Please allow access to camera and microphone to start video call":
+        "Veuillez autoriser l'accès à la caméra et au microphone pour démarrer l'appel vidéo",
+    "Please allow access to microphone to start audio call":
+        "Veuillez autoriser l'accès au microphone pour démarrer l'appel audio",
+    "Registered successfully, please login to continue":
+        "Enregistré avec succès, veuillez vous connecter pour continuer",
     "Star": "Étoile",
     "UnStar": "Désactiver",
     "Starred messages": "Messages suivis",
@@ -4136,9 +4180,12 @@ class LanguageStrings {
     "Unlock app with Touch ID": "Déverrouiller l'application avec Touch ID",
     "Use Face ID": "Utiliser l'identification faciale",
     "Use Touch ID": "Utiliser l'ID tactile",
-    "Unlock you app with touch id / face id": "Déverrouillez votre application avec touch id / face id",
-    "Please authenticate to use biometric login into app": "Veuillez vous authentifier pour utiliser la connexion biométrique dans l'application",
-    "Please authenticate to remove biometric login into app": "Veuillez vous authentifier pour supprimer la connexion biométrique dans l'application",
+    "Unlock you app with touch id / face id":
+        "Déverrouillez votre application avec touch id / face id",
+    "Please authenticate to use biometric login into app":
+        "Veuillez vous authentifier pour utiliser la connexion biométrique dans l'application",
+    "Please authenticate to remove biometric login into app":
+        "Veuillez vous authentifier pour supprimer la connexion biométrique dans l'application",
     "Delete Post": "Supprimer le message",
     "Post is deleted successfully": "Le message a été supprimé avec succès",
     "Posting...": "Affectation...",
@@ -4146,35 +4193,43 @@ class LanguageStrings {
     "Retry": "Recommencez",
     "Discard": "Jeter",
     "Please enter group name": "Veuillez entrer le nom du groupe",
-    "Please select some users to create group": "Veuillez sélectionner des utilisateurs pour créer un groupe",
+    "Please select some users to create group":
+        "Veuillez sélectionner des utilisateurs pour créer un groupe",
     "Group name": "Nom de groupe",
     "Share the app with your friends": "Partagez l'application avec vos amis",
     "Install this cool app": "Installez cette application géniale",
     "Admin": "Administrateur",
     "Leave group": "Quitter le groupe",
     "Delete group": "Supprimer le groupe",
-    "Only admins can send message": "Seuls les administrateurs peuvent envoyer des messages",
+    "Only admins can send message":
+        "Seuls les administrateurs peuvent envoyer des messages",
     "is added to group": "est ajouté au groupe",
     "is removed from group": "est supprimé du groupe",
     "is removed from admins": "est supprimé des administrateurs",
     "left the group": "a quitté le groupe",
     "is now admin": "est maintenant administrateur",
     "Time to update app": "Il est temps de mettre à jour l'application",
-    "You are using older version of app, You need to update the app to continue": "Vous utilisez une ancienne version de l'application, vous devez mettre à jour l'application pour continuer",
-    "Maximum 1 minute video is allowed to select": "Une vidéo d'une minute maximum est autorisée pour sélectionner",
+    "You are using older version of app, You need to update the app to continue":
+        "Vous utilisez une ancienne version de l'application, vous devez mettre à jour l'application pour continuer",
+    "Maximum 1 minute video is allowed to select":
+        "Une vidéo d'une minute maximum est autorisée pour sélectionner",
     "Copy": "Copie",
     "Group is updated": "Le groupe est mis à jour",
     "Stranger chat": "Chat étranger",
-    "Have fun by chatting with random peoples": "Amusez-vous en discutant avec des personnes au hasard",
+    "Have fun by chatting with random peoples":
+        "Amusez-vous en discutant avec des personnes au hasard",
     "Tvs": "Téléviseurs",
     "Watch your favourite tvs": "Regardez vos téléviseurs préférés",
     "Random call": "Appel aléatoire",
-    "Have fun by calling to random peoples": "Amusez-vous en appelant des personnes au hasard",
+    "Have fun by calling to random peoples":
+        "Amusez-vous en appelant des personnes au hasard",
     "Checking connection..": "Vérification de la connexion..",
-    "Please check your internet connection": "S'il vous plait, vérifiez votre connexion internet",
+    "Please check your internet connection":
+        "S'il vous plait, vérifiez votre connexion internet",
     "Going live": "En direct",
     "Go": "Aller",
-    "Do you want to end live call?": "Voulez-vous mettre fin à l'appel en direct ?",
+    "Do you want to end live call?":
+        "Voulez-vous mettre fin à l'appel en direct ?",
     "User joined": "Utilisateur rejoint",
     "Users": "Utilisateurs",
     "Duration": "Durée",
@@ -4187,24 +4242,32 @@ class LanguageStrings {
     "Live time": "Temps en direct",
     "Total messages": "Nombre total de messages",
     "Total gits": "Total des gits",
-    "Join trending live from professionals": "Rejoignez les tendances en direct des professionnels",
-    "Join competitions and earn money": "Participez à des compétitions et gagnez de l'argent",
+    "Join trending live from professionals":
+        "Rejoignez les tendances en direct des professionnels",
+    "Join competitions and earn money":
+        "Participez à des compétitions et gagnez de l'argent",
     "Pages": "pages",
-    "Space for business, brand and organisations": "Espace pour les entreprises, les marques et les organisations",
-    "A place for people of common interest": "Un lieu pour les personnes d'intérêt commun",
+    "Space for business, brand and organisations":
+        "Espace pour les entreprises, les marques et les organisations",
+    "A place for people of common interest":
+        "Un lieu pour les personnes d'intérêt commun",
     "Your": "Ton",
     "Recent": "Récent",
     "Go Live": "Passez en direct",
     "Now on live": "Maintenant en direct",
-    "Anyone can see who\"s in the club and what they post": "Tout le monde peut voir qui est dans le club et ce qu'il publie",
-    "Only members can see who\"s in the group and what they post": "Seuls les membres peuvent voir qui fait partie du groupe et ce qu'ils publient",
+    "Anyone can see who\"s in the club and what they post":
+        "Tout le monde peut voir qui est dans le club et ce qu'il publie",
+    "Only members can see who\"s in the group and what they post":
+        "Seuls les membres peuvent voir qui fait partie du groupe et ce qu'ils publient",
     "Communication": "Communication",
     "Chat group": "Groupe de discussion",
-    "Create chat group for discussion with club users": "Créer un groupe de discussion pour discuter avec les utilisateurs du club",
+    "Create chat group for discussion with club users":
+        "Créer un groupe de discussion pour discuter avec les utilisateurs du club",
     "Basic info": "Informations de base",
     "Club name": "Nom du club",
     "Add Cover Photo": "Ajouter une photo de couverture",
-    "Give people an idea of what your group is about with a photo": "Donnez aux gens une idée de ce qu'est votre groupe avec une photo",
+    "Give people an idea of what your group is about with a photo":
+        "Donnez aux gens une idée de ce qu'est votre groupe avec une photo",
     "Cover photo": "Photo de couverture",
     "Leave club": "Quitter le club",
     "Remove": "Retirer",
@@ -4212,27 +4275,35 @@ class LanguageStrings {
     "Please enter club description": "Veuillez entrer la description du club",
     "Please select club image": "Veuillez sélectionner l'image du club",
     "On request": "Sur demande",
-    "Interested users can request to join, admin can approve the request": "Les utilisateurs intéressés peuvent demander à rejoindre, l'administrateur peut approuver la demande",
+    "Interested users can request to join, admin can approve the request":
+        "Les utilisateurs intéressés peuvent demander à rejoindre, l'administrateur peut approuver la demande",
     "Watch Ads to earn coins": "Regardez les annonces pour gagner des pièces",
     "You need": "Vous avez besoin",
     "to join this competition": "pour participer à ce concours",
     "Files": "Des dossiers",
     "File": "Dossier",
-    "Finding a perfect user to chat": "Trouver un utilisateur parfait pour discuter",
-    "Permanent delete account and whole data": "Supprimer définitivement le compte et toutes les données",
+    "Finding a perfect user to chat":
+        "Trouver un utilisateur parfait pour discuter",
+    "Permanent delete account and whole data":
+        "Supprimer définitivement le compte et toutes les données",
     "Live TV": "En direct",
     "Allow": "Permettre",
     "Map": "Carte",
     "Share location": "Emplacement partagé",
-    "Your Followers can view your location": "Vos abonnés peuvent voir votre position",
+    "Your Followers can view your location":
+        "Vos abonnés peuvent voir votre position",
     "Live chat": "Chat en direct",
     "Subscribe channel to view": "Abonnez-vous à la chaîne pour voir",
     "Subscribe using": "Abonnez-vous en utilisant",
-    "You are subscribed to this channel now": "Vous êtes abonné à cette chaîne maintenant",
+    "You are subscribed to this channel now":
+        "Vous êtes abonné à cette chaîne maintenant",
     "Redeem": "Racheter",
-    "Minimum --coins-- coins required to redeem": "Minimum --coins-- pièces requises pour racheter",
-    "Minimum withdrawal limit is --cash--USD": "La limite de retrait minimum est --cash--USD",
-    "Please enter valid amount of coins": "Veuillez entrer un nombre valide de pièces",
+    "Minimum --coins-- coins required to redeem":
+        "Minimum --coins-- pièces requises pour racheter",
+    "Minimum withdrawal limit is --cash--USD":
+        "La limite de retrait minimum est --cash--USD",
+    "Please enter valid amount of coins":
+        "Veuillez entrer un nombre valide de pièces",
     "Enter number of coins to redeem": "Entrez le nombre de pièces à échanger",
     "Posted in": "Publié dans",
     "Live History": "Historique en direct",
@@ -4243,13 +4314,16 @@ class LanguageStrings {
     "Verified": "Vérifié",
     "Your profile is verified now": "Votre profil est maintenant vérifié",
     "Verified on": "Vérifié le",
-    "Verified accounts have blue checkmark next to their names to show that we have confirmed you are a real person": "Les comptes vérifiés ont une coche bleue à côté de leurs noms pour montrer que nous avons confirmé que vous êtes une personne réelle",
+    "Verified accounts have blue checkmark next to their names to show that we have confirmed you are a real person":
+        "Les comptes vérifiés ont une coche bleue à côté de leurs noms pour montrer que nous avons confirmé que vous êtes une personne réelle",
     "Document type": "Type de document",
     "Upload document": "Télécharger un document",
     "Select a document type": "Sélectionnez un type de document",
-    "Please select a document type": "Veuillez sélectionner un type de document",
+    "Please select a document type":
+        "Veuillez sélectionner un type de document",
     "Please upload identity proof": "Veuillez télécharger une pièce d'identité",
-    "Profile verification request is sent, you will be updated soon": "La demande de vérification de profil est envoyée, vous serez bientôt mis à jour",
+    "Profile verification request is sent, you will be updated soon":
+        "La demande de vérification de profil est envoyée, vous serez bientôt mis à jour",
     "Status": "Statut",
     "In processing": "Dans le traitement",
     "Cancelled": "Annulé",
@@ -4259,8 +4333,10 @@ class LanguageStrings {
     "Pan card": "Carte panoramique",
     "Other": "Autre",
     "Message to reviewer": "Message au réviseur",
-    "Upload both front and back side of document": "Télécharger le recto et le verso du document",
-    "You can upload maximum 2 images": "Vous pouvez télécharger au maximum 2 images",
+    "Upload both front and back side of document":
+        "Télécharger le recto et le verso du document",
+    "You can upload maximum 2 images":
+        "Vous pouvez télécharger au maximum 2 images",
     "Payment and coins": "Paiement et pièces",
     "Change Language": "Changer de langue",
     "Choose image": "Choisissez l'image"
@@ -4322,29 +4398,30 @@ class LanguageStrings {
     "Yes": "Sim",
     "Next": "Próximo",
     "Please grant the required permission from settings to access this feature.":
-    "Por favor, conceda a permissão necessária das configurações para acessar este recurso.",
+        "Por favor, conceda a permissão necessária das configurações para acessar este recurso.",
     "Please check your internet connection and try again.":
-    "Por favor, verifique sua conexão de internet e tente novamente.",
+        "Por favor, verifique sua conexão de internet e tente novamente.",
     "No data found": "Nenhum dado encontrado",
     "Watch Ads": "Assistir anúncios",
     "By watching Ads, you get to earn coins_value Coin per advert you watch. Click the button to start earning!":
-    "Ao assistir aos Anúncios, você ganha coins_value Moeda por anúncio que você assiste. Clique no botão para começar a ganhar!",
+        "Ao assistir aos Anúncios, você ganha coins_value Moeda por anúncio que você assiste. Clique no botão para começar a ganhar!",
     "No product is available": "Nenhum produto está disponível",
     "Some error occurred while performing purchase, please try again later.":
-    "Algum erro ocorreu durante a realização da compra, por favor tente novamente mais tarde.",
+        "Algum erro ocorreu durante a realização da compra, por favor tente novamente mais tarde.",
     "Store is not available.": "A loja não está disponível.",
     "Cancelled by user": "Cancelado pelo usuário",
     "Face ID": "Identificação facial",
     "Touch ID": "Touch ID",
     "By signing up, you are acknowledging that you have read, understood and accept our":
-    "Ao se inscrever, você está reconhecendo que leu, entendeu e aceitou nosso",
+        "Ao se inscrever, você está reconhecendo que leu, entendeu e aceitou nosso",
     "Terms of Service": "Termos de serviço",
     "Welcome": "Bem-vindo",
     "Hi": "Oi",
     "Profile": "Perfil",
     "Edit profile": "Editar perfil",
     "Profile updated": "Perfil atualizado",
-    "Minimum withdrawal limit is 50USD": "O limite mínimo de retirada é de 50 Dolar",
+    "Minimum withdrawal limit is 50USD":
+        "O limite mínimo de retirada é de 50 Dolar",
     "Don’t have an Account ?": "Não tem uma conta?",
     "Already have an Account ?": "Já tem uma conta ?",
     "Sign up": "Cadastre-se",
@@ -4364,18 +4441,20 @@ class LanguageStrings {
     "We have sent an OTP": "Enviamos um Codigo",
     "Enter OTP": "Entre com Telefone",
     "Wrong OTP, please enter the correct OTP":
-    "Codigo errado, por favor, digite o Codigo correto",
+        "Codigo errado, por favor, digite o Codigo correto",
     "Resend OTP": "Reenviar Codigo",
     "Please enter the one time password sent to your email or phone number to verify your account and change your password":
-    "Favor digitar a senha enviada uma única vez para seu e-mail ou número de telefone para verificar sua conta e alterar sua senha",
+        "Favor digitar a senha enviada uma única vez para seu e-mail ou número de telefone para verificar sua conta e alterar sua senha",
     "Let’s help you get back your account":
-    "Vamos ajudar você a recuperar sua conta",
-    "Login another account instead": "Em vez disso, faça o login em outra conta",
+        "Vamos ajudar você a recuperar sua conta",
+    "Login another account instead":
+        "Em vez disso, faça o login em outra conta",
     "Please enter the one time password sent to your phone number to verify your phone number":
-    "Por favor, digite a senha enviada uma única vez para seu número de telefone para verificar seu número de telefone",
+        "Por favor, digite a senha enviada uma única vez para seu número de telefone para verificar seu número de telefone",
     "Let’s help you to change phone number":
-    "Vamos ajudar você a mudar o número de telefone",
-    "Kindly fill in your email address": "Por gentileza, preencha seu endereço de e-mail",
+        "Vamos ajudar você a mudar o número de telefone",
+    "Kindly fill in your email address":
+        "Por gentileza, preencha seu endereço de e-mail",
     "If you didn’t receive code,": "Se você não recebeu o código,",
     "Send": "Enviar",
     "Sent": "Enviado",
@@ -4418,9 +4497,10 @@ class LanguageStrings {
     "Please enter confirm password": "Favor inserir senha de confirmação",
     "Password does not matched": "A senha não corresponde",
     "Create an account to our top picks for you!":
-    "Crie uma conta para nossas principais escolhas para você!",
+        "Crie uma conta para nossas principais escolhas para você!",
     "Please enter user name": "Por favor, digite o nome do usuário",
-    "Please enter valid user name": "Por favor, digite um nome de usuário válido",
+    "Please enter valid user name":
+        "Por favor, digite um nome de usuário válido",
     "Enter new password": "Digite a nova senha",
     "Enter confirm password": "Digite confirmar senha",
     "Enter old password": "Digite a senha antiga",
@@ -4429,7 +4509,8 @@ class LanguageStrings {
     "Please enter color name": "Por favor, insira o nome da cor",
     "Please select color": "Por favor, selecione a cor",
     "User name or password is wrong": "O nome de usuário ou senha está errado",
-    "Please enter a valid phone number": "Por favor, digite um número de telefone válido",
+    "Please enter a valid phone number":
+        "Por favor, digite um número de telefone válido",
     "Home": "Início",
     "Dashboard": "Painel de controle",
     "Top suggested users": "Principais usuários sugeridos",
@@ -4446,9 +4527,9 @@ class LanguageStrings {
     "Home Sliders": "Home Sliders",
     "Request sent": "Solicitação enviada",
     "Such kind of messages are not allowed":
-    "Esses tipos de mensagens não são permitidos",
+        "Esses tipos de mensagens não são permitidos",
     "There is some problem, Please try again later":
-    "Há algum problema, por favor tente novamente mais tarde",
+        "Há algum problema, por favor tente novamente mais tarde",
     "Camera": "Camera",
     "Photo": "Foto",
     "Sent a Photo": "Enviou uma foto",
@@ -4461,7 +4542,7 @@ class LanguageStrings {
     "Export chat with media": "Exportar conversa com a mídia",
     "Export chat without media": "Exportar chat sem mídia",
     "Video lengths can not exceed 20 seconds":
-    "A duração do vídeo não pode exceder 20 segundos",
+        "A duração do vídeo não pode exceder 20 segundos",
     "Sticker": "adesivo",
     "Sent a Sticker": "Enviou um adesivo",
     "Gif": "Gif",
@@ -4503,7 +4584,7 @@ class LanguageStrings {
     "Sent a Location": "Enviou um local",
     "Create new password": "Criar nova senha",
     "Your new password must be  different from last password":
-    "Sua nova senha deve ser diferente da anterior",
+        "Sua nova senha deve ser diferente da anterior",
     "Old password": "Senha antiga",
     "New password": "Nova senha",
     "Confirm password": "Confirmar senha",
@@ -4511,15 +4592,17 @@ class LanguageStrings {
     "Password changed": "Senha alterada",
     "Password rules": "Regras de senha",
     "Your password must be 8 or more characters long":
-    "Sua senha deve conter 8 ou mais caracteres",
+        "Sua senha deve conter 8 ou mais caracteres",
     "Reset password": "Redefinir senha",
-    "Please enter ringtone name": "Por favor, digite o nome do toque de chamada",
-    "Please enter valid email address": "Por favor, digite um endereço de email válido",
+    "Please enter ringtone name":
+        "Por favor, digite o nome do toque de chamada",
+    "Please enter valid email address":
+        "Por favor, digite um endereço de email válido",
     "Email Address": "Endereço de email",
     "Reset password link is sent to your email address":
-    "Redefinir o link da senha é enviado para seu endereço de email",
+        "Redefinir o link da senha é enviado para seu endereço de email",
     "Reset password link will be sent to your email address":
-    "O link de redefinição de senha será enviado para seu endereço de email",
+        "O link de redefinição de senha será enviado para seu endereço de email",
     "Email does not exists": "O email não existe",
     "Joined": "Entrou",
     "Join": "Entrar",
@@ -4588,17 +4671,17 @@ class LanguageStrings {
     "WINNER ANNOUNCEMENT PENDING": "ANÚNCIO DO VENCEDOR PENDENTE",
     "VIEW WINNER": "VER VENCEDOR",
     "Check your coins and earn more coins":
-    "Verifique suas moedas e ganhe mais moedas",
+        "Verifique suas moedas e ganhe mais moedas",
     "Manage your photos and albums": "Gerencie suas fotos e álbuns",
     "Your friends are nearby,  find them!":
-    "Seus amigos estão por perto, encontre-os!",
+        "Seus amigos estão por perto, encontre-os!",
     "Contact our support for quick fixes":
-    "Entre em contato com nosso suporte para soluções rápidas",
+        "Entre em contato com nosso suporte para soluções rápidas",
     "Track your earnings": "Acompanhe seus ganhos",
     "Tune your app settings": "Ajuste as configurações do seu aplicativo",
     "Exit the app with this button": "Saia do aplicativo com este botão",
     "Frequently asked questions by customers":
-    "Dúvidas mais frequentes dos Usuarios",
+        "Dúvidas mais frequentes dos Usuarios",
     "Support requests": "Solicitações de suporte",
     "Create support requests": "Criar solicitações de suporte",
     "Find Friends": "Encontrar amigos",
@@ -4626,7 +4709,7 @@ class LanguageStrings {
     "Incoming": "Entrada",
     "Missed": "Perdida",
     "Are you sure you want to end your call?":
-    "Tem certeza de que deseja encerrar sua chamada?",
+        "Tem certeza de que deseja encerrar sua chamada?",
     "No cancel & return to call": "Sem cancelar e retornar a chamada",
     "Yes end call now": "Sim, encerre a chamada agora",
     "Please wait for joining...": "Por favor, aguarde para entrar...",
@@ -4636,7 +4719,7 @@ class LanguageStrings {
     "Post deleted": "Postagem deletada",
     "No post updates found": "Nenhuma atualização de postagem encontrada",
     "Follow your friends to see their post updates":
-    "Siga seus amigos para ver as atualizações de postagens deles",
+        "Siga seus amigos para ver as atualizações de postagens deles",
     "No user found": "Nenhum usuário encontrado",
     "No hashtag found": "Nenhuma hashtag encontrada",
     "No photos found": "Nenhuma foto encontrada",
@@ -4663,7 +4746,8 @@ class LanguageStrings {
     "See All": "ver tudo",
     "Clubs": "Clubes",
     "Suggested Clubs": "Clubes sugeridos",
-    "Clubs you might be interested in": "Clubes em que você possa estar interessado",
+    "Clubs you might be interested in":
+        "Clubes em que você possa estar interessado",
     "Create club": "Criar clube",
     "Club photo": "Foto do clube",
     "Club description": "Descrição do clube",
@@ -4681,29 +4765,30 @@ class LanguageStrings {
     "All Participants": "Todos os participantes",
     "Only Admins": "Somente administradores",
     "Choose who can send message in group":
-    "Escolha quem pode enviar mensagem no grupo",
+        "Escolha quem pode enviar mensagem no grupo",
     "Choose who can edit group": "Escolha quem pode editar o grupo",
-    "Follow some user to start chat": "Siga algum usuário para iniciar o bate-papo",
+    "Follow some user to start chat":
+        "Siga algum usuário para iniciar o bate-papo",
     "No chat found": "Nenhum bate-papo encontrado",
     "Make some audio/video call with friends":
-    "Faça uma chamada de áudio/vídeo com amigos",
+        "Faça uma chamada de áudio/vídeo com amigos",
     "No call found": "Nenhuma chamada encontrada",
     "No Story found": "nenhum Story encontrado",
     "Post some stories to create highlights":
-    "Publique alguns stories para criar destaques",
+        "Publique alguns stories para criar destaques",
     "No Notification found": "Nenhuma notificação encontrada",
     "Enter text here": "Digite o texto aqui",
     "Delete account": "Excluir conta",
     "Are you sure to delete account, Once account is deleted your all data will be deleted":
-    "Você tem certeza de excluir sua conta, uma vez que a conta for excluída, todos os seus dados serão excluídos",
+        "Você tem certeza de excluir sua conta, uma vez que a conta for excluída, todos os seus dados serão excluídos",
     "Please allow access to camera and microphone to start live":
-    "Favor permitir o acesso à câmera e ao microfone para iniciar a transmissão ao vivo",
+        "Favor permitir o acesso à câmera e ao microfone para iniciar a transmissão ao vivo",
     "Please allow access to camera and microphone to start video call":
-    "Favor permitir o acesso à câmera e ao microfone para iniciar uma chamada de vídeo",
+        "Favor permitir o acesso à câmera e ao microfone para iniciar uma chamada de vídeo",
     "Please allow access to microphone to start audio call":
-    "Favor permitir o acesso ao microfone para iniciar a chamada de áudio",
+        "Favor permitir o acesso ao microfone para iniciar a chamada de áudio",
     "Registered successfully, please login to continue":
-    "Registrado com sucesso, por favor faça o login para continuar",
+        "Registrado com sucesso, por favor faça o login para continuar",
     "Star": "Estrela",
     "UnStar": "Remover estrela",
     "Starred messages": "mensagens com estrela",
@@ -4719,16 +4804,17 @@ class LanguageStrings {
     "Last seen": "Último visto",
     "App is locked": "O aplicativo está bloqueado",
     "Face ID/Touch ID": "Face ID/Touch ID",
-    "Unlock app with Face ID": "Desbloquear aplicativo com identificação facial",
+    "Unlock app with Face ID":
+        "Desbloquear aplicativo com identificação facial",
     "Unlock app with Touch ID": "Desbloquear aplicativo com Touch ID",
     "Use Face ID": "Use Face ID",
     "Use Touch ID": "Use Touch ID",
     "Unlock you app with touch id / face id":
-    "Desbloqueie seu aplicativo com touch id / identificação facial",
+        "Desbloqueie seu aplicativo com touch id / identificação facial",
     "Please authenticate to use biometric login into app":
-    "Autentique-se para usar o login biométrico no aplicativo",
+        "Autentique-se para usar o login biométrico no aplicativo",
     "Please authenticate to remove biometric login into app":
-    "Autentique-se para remover o login biométrico no aplicativo",
+        "Autentique-se para remover o login biométrico no aplicativo",
     "Delete Post": "Apague a postagem",
     "Post is deleted successfully": "A postagem foi excluída com sucesso",
     "Posting...": "postagem...",
@@ -4737,14 +4823,16 @@ class LanguageStrings {
     "Discard": "Descartar",
     "Please enter group name": "Insira o nome do grupo",
     "Please select some users to create group":
-    "Selecione alguns usuários para criar o grupo",
+        "Selecione alguns usuários para criar o grupo",
     "Group name": "Nome do grupo",
-    "Share the app with your friends": "Compartilhe o aplicativo com seus amigos",
+    "Share the app with your friends":
+        "Compartilhe o aplicativo com seus amigos",
     "Install this cool app": "Instale este aplicativo legal",
     "Admin": "Administrador",
     "Leave group": "Deixar o grupo",
     "Delete group": "Excluir grupo",
-    "Only admins can send message": "Somente administradores podem enviar mensagens",
+    "Only admins can send message":
+        "Somente administradores podem enviar mensagens",
     "is added to group": "é adicionado ao grupo",
     "is removed from group": "foi removido do grupo",
     "is removed from admins": "foi removido dos administradores",
@@ -4752,22 +4840,22 @@ class LanguageStrings {
     "is now admin": "agora é administrador",
     "Time to update app": "Hora de atualizar o aplicativo",
     "You are using older version of app, You need to update the app to continue":
-    "Você está usando uma versão mais antiga do aplicativo. Você precisa atualizar o aplicativo para continuar",
+        "Você está usando uma versão mais antiga do aplicativo. Você precisa atualizar o aplicativo para continuar",
     "Maximum 1 minute video is allowed to select":
-    "Máximo de 1 minuto de vídeo é permitido para selecionar",
+        "Máximo de 1 minuto de vídeo é permitido para selecionar",
     "Copy": "Copiar",
     "Group is updated": "grupo atualizado",
     "Stranger chat": "Bate-papo estranho",
     "Have fun by chatting with random peoples":
-    "Divirta-se conversando com pessoas aleatórias",
+        "Divirta-se conversando com pessoas aleatórias",
     "Tvs": "Tv",
     "Watch your favourite tvs": "Assista à sua TV favorita",
     "Random call": "Chamada aleatória",
     "Have fun by calling to random peoples":
-    "Divirta-se chamando pessoas aleatórias",
+        "Divirta-se chamando pessoas aleatórias",
     "Checking connection..": "Verificando conexão...",
     "Please check your internet connection":
-    "Por favor, verifique sua conexão à internet",
+        "Por favor, verifique sua conexão à internet",
     "Going live": "Entrando ao vivo",
     "Go": "Go",
     "Do you want to end live call?": "Você quer terminar a chamada ao vivo?",
@@ -4784,30 +4872,31 @@ class LanguageStrings {
     "Total messages": "Total de mensagens",
     "Total gits": "Total de gits",
     "Join trending live from professionals":
-    "Junte-se ao vivo às tendências dos profissionais",
-    "Join competitions and earn money": "Participe de competições e ganhe dinheiro",
+        "Junte-se ao vivo às tendências dos profissionais",
+    "Join competitions and earn money":
+        "Participe de competições e ganhe dinheiro",
     "Pages": "Páginas",
     "Space for business, brand and organisations":
-    "Espaço para empresas, marcas e organizações",
+        "Espaço para empresas, marcas e organizações",
     "A place for people of common interest":
-    "Um lugar para pessoas de interesse comum",
+        "Um lugar para pessoas de interesse comum",
     "Your": "Seu",
     "Recent": "Recente",
     "Go Live": "Entre ao Vivo",
     "Now on live": "Agora ao vivo",
     "Anyone can see who\"s in the club and what they post":
-    "Qualquer um pode ver quem está no clube e o que eles postam",
+        "Qualquer um pode ver quem está no clube e o que eles postam",
     "Only members can see who\"s in the group and what they post":
-    "Somente os membros podem ver quem está no grupo e o que eles postam",
+        "Somente os membros podem ver quem está no grupo e o que eles postam",
     "Communication": "Comunicação",
     "Chat group": "Grupo de conversa",
     "Create chat group for discussion with club users":
-    "Criar grupo de bate-papo para discussão com os usuários do clube",
+        "Criar grupo de bate-papo para discussão com os usuários do clube",
     "Basic info": "Informações básicas",
     "Club name": "Nome do clube",
     "Add Cover Photo": "Adicionar foto da capa",
     "Give people an idea of what your group is about with a photo":
-    "Dê às pessoas uma idéia do que é o seu grupo com uma foto",
+        "Dê às pessoas uma idéia do que é o seu grupo com uma foto",
     "Cover photo": "Foto da capa",
     "Leave club": "Deixar o clube",
     "Remove": "Remover",
@@ -4816,33 +4905,36 @@ class LanguageStrings {
     "Please select club image": "Por favor, selecione a imagem do clube",
     "On request": "Sob solicitação",
     "Interested users can request to join, admin can approve the request":
-    "Os usuários interessados ​​podem solicitar a adesão, o administrador pode aprovar a solicitação",
+        "Os usuários interessados ​​podem solicitar a adesão, o administrador pode aprovar a solicitação",
     "Watch Ads to earn coins": "Assista a anúncios para ganhar moedas",
     "You need": "Você precisa",
     "to join this competition": "para participar desta competição",
     "Files": "arquivos",
     "File": "Arquivo",
-    "Finding a perfect user to chat": "Encontrar um usuário perfeito para conversar",
+    "Finding a perfect user to chat":
+        "Encontrar um usuário perfeito para conversar",
     "Permanent delete account and whole data":
-    "Eliminação permanente de conta e dados completos",
+        "Eliminação permanente de conta e dados completos",
     "Live TV": "TV ao vivo",
     "Allow": "Permitir",
     "Map": "Mapa",
     "Share location": "Local de compartilhamento",
     "Your Followers can view your location":
-    "Seus seguidores podem ver sua localização",
+        "Seus seguidores podem ver sua localização",
     "Live chat": "Bate-papo ao vivo",
     "Subscribe channel to view": "Inscreva-se no canal para visualizar",
     "Subscribe using": "Assinar usando",
     "You are subscribed to this channel now":
-    "Você está inscrito neste canal agora",
+        "Você está inscrito neste canal agora",
     "Redeem": "Resgatar",
     "Minimum {{coins}} coins required to redeem":
-    "Mínimo {{coins}} moedas necessárias para resgatar",
+        "Mínimo {{coins}} moedas necessárias para resgatar",
     "Minimum withdrawal limit is {{cash}}\$":
-    "O limite mínimo de retirada é {{cash}}\$",
-    "Please enter valid amount of coins": "Insira uma quantidade válida de moedas",
-    "Enter number of coins to redeem": "Digite o número de moedas para resgatar",
+        "O limite mínimo de retirada é {{cash}}\$",
+    "Please enter valid amount of coins":
+        "Insira uma quantidade válida de moedas",
+    "Enter number of coins to redeem":
+        "Digite o número de moedas para resgatar",
     "Posted in": "Postado em",
     "Live History": "Histórico ao vivo",
     "Your live history statics": "Suas estatísticas de histórico ao vivo",
@@ -4853,14 +4945,14 @@ class LanguageStrings {
     "Your profile is verified now": "Seu perfil foi verificado agora",
     "Verified on": "Verificado em",
     "Verified accounts have blue checkmark next to their names to show that we have confirmed you are a real person":
-    "As contas verificadas têm uma marca de seleção azul ao lado de seus nomes para mostrar que confirmamos que você é uma pessoa real",
+        "As contas verificadas têm uma marca de seleção azul ao lado de seus nomes para mostrar que confirmamos que você é uma pessoa real",
     "Document type": "Tipo de documento",
     "Upload document": "Carregar documento",
     "Select a document type": "Selecione um tipo de documento",
     "Please select a document type": "Selecione um tipo de documento",
     "Please upload identity proof": "Faça o upload da identidade",
     "Profile verification request is sent, you will be updated soon":
-    "A solicitação de verificação de perfil foi enviada, você será atualizado em breve",
+        "A solicitação de verificação de perfil foi enviada, você será atualizado em breve",
     "Status": "Status",
     "In processing": "Em processo",
     "Cancelled": "Poxa Não Deu :)",
@@ -4871,21 +4963,20 @@ class LanguageStrings {
     "Other": "Outro",
     "Message to reviewer": "Mensagem ao revisor",
     "Upload both front and back side of document":
-    "Carregue a frente e o verso do documento",
+        "Carregue a frente e o verso do documento",
     "You can upload maximum 2 images": "Você pode enviar no máximo 2 imagens",
     "Payment and coins": "Pagamento e moedas",
     "Change Language": "Mudar idioma",
     "Choose image": "Escolha a imagem",
     "My CLub": "meu clube",
     "Only requested member or joined member can see it":
-    "Somente o membro solicitado ou membro associado pode vê-lo",
+        "Somente o membro solicitado ou membro associado pode vê-lo",
     "New": "Novo",
     "Log out": "Sair",
     "Filter": "Filtro",
     "This week": "Essa semana",
     "This month": "Este mês",
     "Earlier": " Mais cedo",
-
     "Bio": "biografia",
     "Bio is updated": "A biografia está atualizada",
     "started following you": "comecei seguindo você",
@@ -4893,5 +4984,4 @@ class LanguageStrings {
     "liked your post": "gostei da sua postagem",
     "sent a gift": "enviou um presente",
   };
-
 }

@@ -128,7 +128,7 @@ class _GiftsListingState extends State<GiftsListing> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: AppColorConstants.backgroundColor.darken(),
+      color: Colors.white,
       child: Column(
         children: [
           const SizedBox(

@@ -1,9 +1,11 @@
 import 'dart:async';
 import 'package:flutter/services.dart';
 import 'package:flutter_contacts/contact.dart';
+import 'package:foap/helper/file_extension.dart';
 import 'package:foap/helper/imports/common_import.dart';
 import 'package:focused_menu/focused_menu.dart';
 import 'package:focused_menu/modals.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:map_launcher/map_launcher.dart';
 import 'package:open_filex/open_filex.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
@@ -29,6 +31,8 @@ class _ChatDetailState extends State<ChatDetail> {
       RefreshController(initialRefresh: false);
   final SettingsController _settingsController = Get.find();
   final UserProfileManager _userProfileManager = Get.find();
+
+  final ImagePicker _picker = ImagePicker();
 
   @override
   void initState() {
@@ -152,7 +156,6 @@ class _ChatDetailState extends State<ChatDetail> {
                         ThemeIconWidget(
                           ThemeIcon.mobile,
                           color: AppColorConstants.iconColor,
-                          size: 25,
                         ).p4.ripple(() {
                           audioCall();
                         }).rp(20),
@@ -160,7 +163,6 @@ class _ChatDetailState extends State<ChatDetail> {
                         ThemeIconWidget(
                           ThemeIcon.videoCamera,
                           color: AppColorConstants.iconColor,
-                          size: 25,
                         ).p4.ripple(() {
                           videoCall();
                         })
@@ -452,6 +454,35 @@ class _ChatDetailState extends State<ChatDetail> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  GestureDetector(
+                    onTap: () async {
+                      XFile? photo =
+                          await _picker.pickImage(source: ImageSource.camera);
+                      if (photo != null) {
+                        Media media =
+                            await photo.toMedia(GalleryMediaType.photo);
+
+                        _chatDetailController.sendImageMessage(
+                            media: media,
+                            mode: _chatDetailController.actionMode.value,
+                            room: _chatDetailController.chatRoom.value!);
+                      }
+                    },
+                    child: Container(
+                      height: 30,
+                      width: 30,
+                      color: AppColorConstants.themeColor,
+                      child: ThemeIconWidget(
+                        size: 20,
+                        ThemeIcon.camera,
+                        color: Colors.white,
+                      ),
+                    ).circular.ripple(() {
+                      openMediaSharingOptionView();
+                      // chatDetailController
+                      //     .expandCollapseActions();
+                    }),
+                  ),
                   Expanded(
                     child: Row(
                       children: [
@@ -491,6 +522,68 @@ class _ChatDetailState extends State<ChatDetail> {
                         ),
                         const SizedBox(
                           width: 10,
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            showModalBottomSheet(
+                                backgroundColor: Colors.transparent,
+                                context: context,
+                                builder: (context) => VoiceRecord(
+                                      recordingCallback: (media) {
+                                        _chatDetailController.sendAudioMessage(
+                                            media: media,
+                                            mode: _chatDetailController
+                                                .actionMode.value,
+                                            room: _chatDetailController
+                                                .chatRoom.value!);
+                                      },
+                                    ));
+                          },
+                          icon: ThemeIconWidget(
+                            size: 25,
+                            ThemeIcon.mic,
+                            color: Colors.black,
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 15,
+                        ),
+                        GestureDetector(
+                          onTap: () async {
+                            List<XFile> images = await _picker.pickMultiImage();
+                            List<Media> medias = [];
+                            for (XFile image in images) {
+                              Media media =
+                                  await image.toMedia(GalleryMediaType.photo);
+                              medias.add(media);
+                            }
+
+                            for (Media media in medias) {
+                              if (media.mediaType == GalleryMediaType.photo) {
+                                _chatDetailController.sendImageMessage(
+                                    media: media,
+                                    mode:
+                                        _chatDetailController.actionMode.value,
+                                    room:
+                                        _chatDetailController.chatRoom.value!);
+                              } else {
+                                _chatDetailController.sendVideoMessage(
+                                    media: media,
+                                    mode:
+                                        _chatDetailController.actionMode.value,
+                                    room:
+                                        _chatDetailController.chatRoom.value!);
+                              }
+                            }
+                          },
+                          child: ThemeIconWidget(
+                            ThemeIcon.photos,
+                            color: Colors.black,
+                            size: 25,
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 15,
                         ),
                         Obx(() {
                           return _chatDetailController
@@ -775,7 +868,6 @@ class _ChatDetailState extends State<ChatDetail> {
       Get.to(() => StoryViewer(
             story: model.repliedOnStory,
             storyDeleted: () {},
-
           ));
     } else if (model.messageContentType == MessageContentType.contact) {
       openActionPopupForContact(model.mediaContent.contact!);

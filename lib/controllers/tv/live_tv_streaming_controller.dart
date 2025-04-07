@@ -236,7 +236,7 @@ class TvStreamingController extends GetxController {
         TVModuleApi.subscribeTv(
             tvModel: tvModel, resultCallback: completionCallBack);
       } else {
-        Get.to(() => const PackagesScreen());
+        Get.to(() => PackagesScreen());
       }
     });
   }

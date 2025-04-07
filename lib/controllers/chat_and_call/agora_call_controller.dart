@@ -86,7 +86,7 @@ class AgoraCallController extends GetxController {
     Future.delayed(Duration.zero, () async {
       await _initAgoraRtcEngine(
           callType:
-          call.callType == 1 ? AgoraCallType.audio : AgoraCallType.video);
+              call.callType == 1 ? AgoraCallType.audio : AgoraCallType.video);
       _addAgoraEventHandlers();
       var configuration = const VideoEncoderConfiguration(
           dimensions: VideoDimensions(width: 1920, height: 1080),
@@ -160,14 +160,14 @@ class AgoraCallController extends GetxController {
     engine!.registerEventHandler(
       RtcEngineEventHandler(
           onJoinChannelSuccess: (RtcConnection connection, int elapsed) {
-            debugPrint("local user ${connection.localUid} joined");
-          }, onUserJoined: (RtcConnection connection, int remoteUid, int elapsed) {
+        debugPrint("local user ${connection.localUid} joined");
+      }, onUserJoined: (RtcConnection connection, int remoteUid, int elapsed) {
         debugPrint("remote user $remoteUid joined");
         remoteJoined.value = true;
         remoteUserId.value = remoteUid;
         update();
       }, onUserOffline: (RtcConnection connection, int remoteUid,
-          UserOfflineReasonType reason) {
+              UserOfflineReasonType reason) {
         debugPrint("remote user $remoteUid left channel");
         // if (elapsed == UserOfflineReason.Dropped) {
         //   Wakelock.disable();
@@ -181,18 +181,18 @@ class AgoraCallController extends GetxController {
         debugPrint(
             '[onTokenPrivilegeWillExpire] connection: ${connection.toJson()}, token: $token');
       }, onConnectionStateChanged: (RtcConnection connection,
-          ConnectionStateType state,
-          ConnectionChangedReasonType reason) async {
+              ConnectionStateType state,
+              ConnectionChangedReasonType reason) async {
         if (state == ConnectionStateType.connectionStateConnected) {
           reConnectingRemoteView.value = false;
         } else if (state == ConnectionStateType.connectionStateReconnecting) {
           reConnectingRemoteView.value = true;
         }
       }, onRemoteVideoStateChanged: (RtcConnection connection,
-          int remoteUid,
-          RemoteVideoState state,
-          RemoteVideoStateReason reason,
-          int elapsed) async {
+              int remoteUid,
+              RemoteVideoState state,
+              RemoteVideoStateReason reason,
+              int elapsed) async {
         // if (state == RemoteVideoState.remoteVideoStateFailed ||
         //     state == RemoteVideoState.remoteVideoStateStopped ||
         //     state == RemoteVideoState.remoteVideoStateFrozen) {
@@ -355,7 +355,7 @@ class AgoraCallController extends GetxController {
     InterstitialAds().show();
 
     if (isLaunchedFromCallNotification) {
-      Get.offAll(() => const DashboardScreen());
+      Get.offAll(() => DashboardScreen());
     }
     SharedPrefs().setCallNotificationData(null);
   }
@@ -390,7 +390,7 @@ class AgoraCallController extends GetxController {
     }
 
     if (isLaunchedFromCallNotification) {
-      Get.offAll(() => const DashboardScreen());
+      Get.offAll(() => DashboardScreen());
     }
     SharedPrefs().setCallNotificationData(null);
   }
@@ -409,7 +409,7 @@ class AgoraCallController extends GetxController {
     Get.back();
 
     if (isLaunchedFromCallNotification) {
-      Get.offAll(() => const DashboardScreen());
+      Get.offAll(() => DashboardScreen());
     }
     SharedPrefs().setCallNotificationData(null);
   }

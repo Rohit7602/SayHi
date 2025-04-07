@@ -69,7 +69,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
               size: 25,
             ).p8.ripple(() {
               // Get.back();
-              PIPView.of(context)!.presentBelow(const DashboardScreen());
+              PIPView.of(context)!.presentBelow(DashboardScreen());
             }),
           ]),
         ),
@@ -129,9 +129,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
           height: 5,
         ),
         BodyExtraLargeText(
-          widget.call.isOutGoing
-              ? ringingString
-              : incomingCallString,
+          widget.call.isOutGoing ? ringingString : incomingCallString,
           weight: TextWeight.medium,
           color: AppColorConstants.mainTextColor,
         ),

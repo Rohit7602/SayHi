@@ -23,6 +23,7 @@ import '../chat/media.dart';
 import 'audio_file_player.dart';
 
 class AddPostScreen extends StatefulWidget {
+  bool isComingFromDashboard;
   final PostType postType;
 
   final List<Media>? items;
@@ -37,8 +38,9 @@ class AddPostScreen extends StatefulWidget {
   final double? audioEndTime;
   final VoidCallback postCompletionHandler;
 
-  const AddPostScreen(
+  AddPostScreen(
       {super.key,
+      this.isComingFromDashboard = false,
       required this.postType,
       required this.postCompletionHandler,
       this.items,
@@ -92,20 +94,21 @@ class AddPostState extends State<AddPostScreen> {
                       ),
                       Row(
                         children: [
-                          InkWell(
-                              onTap: () {
-                                Get.back();
-                                addPostController.clear();
+                          if (!widget.isComingFromDashboard)
+                            InkWell(
+                                onTap: () {
+                                  Get.back();
+                                  addPostController.clear();
 
-                                if (!settingsController
-                                    .setting.value!.enableReel) {
-                                  DashboardController dashboardController =
-                                      Get.find();
+                                  if (!settingsController
+                                      .setting.value!.enableReel) {
+                                    DashboardController dashboardController =
+                                        Get.find();
 
-                                  dashboardController.indexChanged(0);
-                                }
-                              },
-                              child: ThemeIconWidget(ThemeIcon.backArrow)),
+                                    dashboardController.indexChanged(0);
+                                  }
+                                },
+                                child: ThemeIconWidget(ThemeIcon.backArrow)),
                           const Spacer(),
                           Container(
                                   color: AppColorConstants.themeColor,
@@ -116,10 +119,7 @@ class AddPostState extends State<AddPostScreen> {
                                     weight: TextWeight.medium,
                                     color: Colors.white,
                                   ).setPadding(
-                                      left: 8,
-                                      right: 8,
-                                      top: 5,
-                                      bottom: 5))
+                                      left: 8, right: 8, top: 5, bottom: 5))
                               .round(10)
                               .ripple(() {
                             if ((widget.items ??
@@ -129,11 +129,11 @@ class AddPostState extends State<AddPostScreen> {
                                 _smartTextFieldController
                                     .textField.value.text.isNotEmpty) {
                               addPostController.submitPost(
-                                  allowComments: addPostController
-                                      .enableComments.value,
+                                  allowComments:
+                                      addPostController.enableComments.value,
                                   postType: widget.postType,
-                                  isPaidContent: addPostController
-                                      .isPaidContent.value,
+                                  isPaidContent:
+                                      addPostController.isPaidContent.value,
                                   isReel: widget.isReel ?? false,
                                   audioId: widget.audioId,
                                   audioStartTime: widget.audioStartTime,
@@ -172,8 +172,8 @@ class AddPostState extends State<AddPostScreen> {
                                   return FractionallySizedBox(
                                       heightFactor: 1,
                                       child: Container(
-                                        color: AppColorConstants
-                                            .backgroundColor,
+                                        color:
+                                            AppColorConstants.backgroundColor,
                                         child: AddedMediaList(
                                           selectPostMediaController:
                                               _selectPostMediaController,
@@ -187,8 +187,7 @@ class AddPostState extends State<AddPostScreen> {
                       if (widget.isReel != true)
                         PostOptionsPopup(
                           selectedMediaList: (medias) {
-                            _selectPostMediaController
-                                .mediaSelected(medias);
+                            _selectPostMediaController.mediaSelected(medias);
                           },
                           selectGif: (gifMedia) {
                             _selectPostMediaController
@@ -209,10 +208,10 @@ class AddPostState extends State<AddPostScreen> {
                             ),
                             BodyMediumText(allowCommentsString),
                             const Spacer(),
-                            Obx(() => ThemeIconWidget(addPostController
-                                            .enableComments.value
-                                        ? ThemeIcon.selectedCheckbox
-                                        : ThemeIcon.emptyCheckbox)
+                            Obx(() => ThemeIconWidget(
+                                        addPostController.enableComments.value
+                                            ? ThemeIcon.selectedCheckbox
+                                            : ThemeIcon.emptyCheckbox)
                                     .ripple(() {
                                   addPostController.toggleEnableComments();
                                 })),
@@ -231,13 +230,12 @@ class AddPostState extends State<AddPostScreen> {
                               ),
                               BodyMediumText(forSubscribersOnlyString),
                               const Spacer(),
-                              Obx(() => ThemeIconWidget(addPostController
-                                              .isPaidContent.value
-                                          ? ThemeIcon.selectedCheckbox
-                                          : ThemeIcon.emptyCheckbox)
+                              Obx(() => ThemeIconWidget(
+                                          addPostController.isPaidContent.value
+                                              ? ThemeIcon.selectedCheckbox
+                                              : ThemeIcon.emptyCheckbox)
                                       .ripple(() {
-                                    addPostController
-                                        .togglePaidContentMode();
+                                    addPostController.togglePaidContentMode();
                                   })),
                             ],
                           ),
@@ -252,21 +250,17 @@ class AddPostState extends State<AddPostScreen> {
                               width: 10,
                             ),
                             Obx(() =>
-                                addPostController.taggedLocation.value ==
-                                        null
+                                addPostController.taggedLocation.value == null
                                     ? BodyMediumText(addLocationString)
                                     : BodyLargeText(addPostController
                                         .taggedLocation.value!.name)),
                             const Spacer(),
-                            Obx(() =>
-                                addPostController.taggedLocation.value ==
-                                        null
-                                    ? ThemeIconWidget(ThemeIcon.nextArrow)
-                                    : ThemeIconWidget(ThemeIcon.close)
-                                        .ripple(() {
-                                        addPostController
-                                            .setTaggedLocation(null);
-                                      })),
+                            Obx(() => addPostController.taggedLocation.value ==
+                                    null
+                                ? ThemeIconWidget(ThemeIcon.nextArrow)
+                                : ThemeIconWidget(ThemeIcon.close).ripple(() {
+                                    addPostController.setTaggedLocation(null);
+                                  })),
                           ],
                         ),
                       ).hp(DesignConstants.horizontalPadding).ripple(() {
@@ -303,8 +297,7 @@ class AddPostState extends State<AddPostScreen> {
                         height: 10,
                       ),
                       Obx(() {
-                        return _smartTextFieldController.isEditing.value ==
-                                1
+                        return _smartTextFieldController.isEditing.value == 1
                             ? Expanded(
                                 child: Container(
                                   // height: 500,
@@ -318,18 +311,16 @@ class AddPostState extends State<AddPostScreen> {
                                               .currentUserTag.isNotEmpty
                                           ? TagUsersView()
                                           : Container().ripple(() {
-                                              FocusManager
-                                                  .instance.primaryFocus
+                                              FocusManager.instance.primaryFocus
                                                   ?.unfocus();
                                             }),
                                 ),
                               )
                             : Container();
                       }),
-                      Obx(() =>
-                          _smartTextFieldController.isEditing.value == 0
-                              ? const Spacer()
-                              : Container()),
+                      Obx(() => _smartTextFieldController.isEditing.value == 0
+                          ? const Spacer()
+                          : Container()),
                     ]),
               ],
             );
@@ -545,17 +536,14 @@ class AddedMediaList extends StatelessWidget {
                                   ? CachedNetworkImage(
                                       fit: BoxFit.cover,
                                       imageUrl: media.filePath!)
-                                  : media.mediaType ==
-                                          GalleryMediaType.video
+                                  : media.mediaType == GalleryMediaType.video
                                       ? VideoPostTile(
                                           width: Get.width,
                                           url: media.file!.path,
                                           isLocalFile: true,
                                           play: true,
                                           onTapActionHandler: () {
-                                            if (settingController
-                                                .setting
-                                                .value!
+                                            if (settingController.setting.value!
                                                 .canEditPhotoVideo) {
                                               openVideoEditor(media);
                                             }
@@ -570,15 +558,13 @@ class AddedMediaList extends StatelessWidget {
                         height: double.infinity,
                         viewportFraction: 1,
                         onPageChanged: (index, reason) {
-                          selectPostMediaController
-                              .updateGallerySlider(index);
+                          selectPostMediaController.updateGallerySlider(index);
                         },
                       ),
                     );
                   }),
                   Obx(() {
-                    return selectPostMediaController
-                                .selectedMediaList.length >
+                    return selectPostMediaController.selectedMediaList.length >
                             1
                         ? Positioned(
                             bottom: 10,
@@ -590,17 +576,14 @@ class AddedMediaList extends StatelessWidget {
                                         height: 25,
                                         color: AppColorConstants.cardColor,
                                         child: DotsIndicator(
-                                          dotsCount:
-                                              selectPostMediaController
-                                                  .selectedMediaList
-                                                  .length,
-                                          position:
-                                              selectPostMediaController
-                                                  .currentIndex.value.toDouble(),
+                                          dotsCount: selectPostMediaController
+                                              .selectedMediaList.length,
+                                          position: selectPostMediaController
+                                              .currentIndex.value
+                                              .toDouble(),
                                           decorator: DotsDecorator(
                                               activeColor:
-                                                  AppColorConstants
-                                                      .themeColor),
+                                                  AppColorConstants.themeColor),
                                         ).hP8)
                                     .round(20)),
                           )

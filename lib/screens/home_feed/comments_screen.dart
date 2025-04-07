@@ -83,8 +83,7 @@ class CommentsScreenState extends State<CommentsScreen> {
                                           .currentUserTag.isNotEmpty
                                       ? TagUsersView()
                                       : Container().ripple(() {
-                                          FocusManager
-                                              .instance.primaryFocus
+                                          FocusManager.instance.primaryFocus
                                               ?.unfocus();
                                         }),
                             )
@@ -108,8 +107,7 @@ class CommentsScreenState extends State<CommentsScreen> {
                               return CommentTile(
                                 model: comment,
                                 replyActionHandler: (comment) {
-                                  _commentsController
-                                      .setReplyComment(comment);
+                                  _commentsController.setReplyComment(comment);
                                 },
                                 deleteActionHandler: (comment) {
                                   _commentsController.deleteComment(
@@ -126,12 +124,10 @@ class CommentsScreenState extends State<CommentsScreen> {
                                     commentId: comment.id,
                                   );
                                 },
-                                loadMoreChildCommentsActionHandler:
-                                    (comment) {
+                                loadMoreChildCommentsActionHandler: (comment) {
                                   _commentsController.getChildComments(
                                     page: comment.currentPageForReplies,
-                                    postId:
-                                        widget.postId ?? widget.model!.id,
+                                    postId: widget.postId ?? widget.model!.id,
                                     parentId: comment.id,
                                   );
                                 },
@@ -143,8 +139,7 @@ class CommentsScreenState extends State<CommentsScreen> {
                               );
                             },
                           ).addPullToRefresh(
-                              refreshController:
-                                  _commentsRefreshController,
+                              refreshController: _commentsRefreshController,
                               onRefresh: () {},
                               onLoading: () {
                                 loadData();
@@ -195,17 +190,15 @@ class CommentsScreenState extends State<CommentsScreen> {
                     child: Obx(() {
                       commentInputField.value = TextEditingValue(
                           text: _smartTextFieldController.searchText.value,
-                          selection: TextSelection.fromPosition(
-                              TextPosition(
-                                  offset: _smartTextFieldController
-                                      .position.value)));
+                          selection: TextSelection.fromPosition(TextPosition(
+                              offset:
+                                  _smartTextFieldController.position.value)));
 
-                      return SmartTextField(
+                      return CommentTextField(
                           maxLine: 1,
                           controller: commentInputField,
                           onTextChangeActionHandler: (text, offset) {
-                            _smartTextFieldController.textChanged(
-                                text, offset);
+                            _smartTextFieldController.textChanged(text, offset);
                           },
                           onFocusChangeActionHandler: (status) {
                             if (status == true) {
@@ -220,15 +213,14 @@ class CommentsScreenState extends State<CommentsScreen> {
                 ThemeIconWidget(
                   ThemeIcon.camera,
                   color: AppColorConstants.mainTextColor,
-                ).rP8.ripple(
-                    () => _commentsController.selectPhoto(handler: () {
-                          _commentsController.postMediaCommentsApiCall(
-                              type: CommentType.image,
-                              postId: widget.postId ?? widget.model!.id,
-                              commentPosted: () {
-                                widget.commentPostedCallback();
-                              });
-                        })),
+                ).rP8.ripple(() => _commentsController.selectPhoto(handler: () {
+                      _commentsController.postMediaCommentsApiCall(
+                          type: CommentType.image,
+                          postId: widget.postId ?? widget.model!.id,
+                          commentPosted: () {
+                            widget.commentPostedCallback();
+                          });
+                    })),
                 ThemeIconWidget(
                   ThemeIcon.gif,
                   color: AppColorConstants.mainTextColor,
@@ -269,8 +261,7 @@ class CommentsScreenState extends State<CommentsScreen> {
       final filter = ProfanityFilter();
       bool hasProfanity = filter.hasProfanity(commentInputField.text);
       if (hasProfanity) {
-        AppUtil.showToast(
-            message: notAllowedMessageString.tr, isSuccess: true);
+        AppUtil.showToast(message: notAllowedMessageString.tr, isSuccess: true);
         return;
       }
 

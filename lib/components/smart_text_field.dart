@@ -137,10 +137,10 @@ class SmartTextFieldController extends GetxController {
     String newText = '';
     if (isHashtag) {
       newText =
-      '${currentText.substring(0, index)}#$text${currentText.substring(endIndex)}';
+          '${currentText.substring(0, index)}#$text${currentText.substring(endIndex)}';
     } else {
       newText =
-      '${currentText.substring(0, index)}@$text${currentText.substring(endIndex)}';
+          '${currentText.substring(0, index)}@$text${currentText.substring(endIndex)}';
     }
     // Update the text field
     textField.value.text = newText;
@@ -165,11 +165,11 @@ class SmartTextField extends StatelessWidget {
 
   const SmartTextField(
       {Key? key,
-        required this.controller,
-        this.maxLine,
-        this.maxChar,
-        required this.onTextChangeActionHandler,
-        required this.onFocusChangeActionHandler})
+      required this.controller,
+      this.maxLine,
+      this.maxChar,
+      required this.onTextChangeActionHandler,
+      required this.onFocusChangeActionHandler})
       : super(key: key);
 
   @override
@@ -192,6 +192,50 @@ class SmartTextField extends StatelessWidget {
             hintStyle: TextStyle(
                 fontSize: FontSizes.b3, color: AppColorConstants.mainTextColor),
             hintText: titleString.tr),
+      ).round(10),
+      onFocusChange: (hasFocus) {
+        onFocusChangeActionHandler(hasFocus);
+      },
+    );
+  }
+}
+
+class CommentTextField extends StatelessWidget {
+  final int? maxLine;
+  final TextEditingController controller;
+  final Function(String, int) onTextChangeActionHandler;
+  final Function(bool) onFocusChangeActionHandler;
+  final int? maxChar;
+
+  const CommentTextField(
+      {Key? key,
+      required this.controller,
+      this.maxLine,
+      this.maxChar,
+      required this.onTextChangeActionHandler,
+      required this.onFocusChangeActionHandler})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Focus(
+      child: TextField(
+        controller: controller,
+        textAlign: TextAlign.left,
+        maxLength: maxChar,
+        style: TextStyle(
+            fontSize: FontSizes.b3, color: AppColorConstants.mainTextColor),
+        maxLines: maxLine ?? 1,
+        onChanged: (text) {
+          onTextChangeActionHandler(text, controller.selection.baseOffset);
+        },
+        decoration: InputDecoration(
+            border: InputBorder.none,
+            contentPadding: const EdgeInsets.only(top: 10, left: 10, right: 10),
+            counterText: "",
+            hintStyle: TextStyle(
+                fontSize: FontSizes.b3, color: AppColorConstants.mainTextColor),
+            hintText: "Add a comment"),
       ).round(10),
       onFocusChange: (hasFocus) {
         onFocusChangeActionHandler(hasFocus);

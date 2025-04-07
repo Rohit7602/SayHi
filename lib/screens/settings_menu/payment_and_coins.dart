@@ -34,7 +34,7 @@ class _PaymentAndCoinsState extends State<PaymentAndCoins> {
                 Column(
                   children: [
                     addTileEvent('${coinsString.tr} ($coin)', () {
-                      Get.to(() => const PackagesScreen());
+                      Get.to(() => PackagesScreen());
                     }),
                     addTileEvent(transactionHistoryString.tr, () {
                       Get.to(() => const Transactions());

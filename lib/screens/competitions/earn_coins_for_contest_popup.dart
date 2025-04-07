@@ -19,7 +19,7 @@ class _EarnCoinForContestPopupState extends State<EarnCoinForContestPopup> {
       backgroundColor: AppColorConstants.backgroundColor,
       body: Column(
         children: [
-          backNavigationBar( title: coinsString.tr),
+          backNavigationBar(title: coinsString.tr),
           const Spacer(),
           Container(
                   height: 450,
@@ -45,7 +45,7 @@ class _EarnCoinForContestPopupState extends State<EarnCoinForContestPopup> {
                         text: buyCoinsString.tr,
                         onPress: () {
                           Get.back();
-                          Get.to(() => const PackagesScreen());
+                          Get.to(() => PackagesScreen());
                         },
                       ).hp(DesignConstants.horizontalPadding)
                     ],

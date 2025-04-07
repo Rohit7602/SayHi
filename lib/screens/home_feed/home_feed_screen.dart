@@ -4,6 +4,8 @@ import 'package:foap/helper/imports/chat_imports.dart';
 import 'package:foap/helper/imports/common_import.dart';
 import 'package:foap/helper/imports/story_imports.dart';
 import 'package:foap/model/live_model.dart';
+import 'package:foap/screens/calling/call_history.dart';
+import 'package:foap/screens/dashboard/explore.dart';
 import 'package:foap/screens/home_feed/story_uploader.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import '../../components/post_card/post_card.dart';
@@ -86,6 +88,7 @@ class HomeFeedState extends State<HomeFeedScreen> {
   Widget build(BuildContext context) {
     return AppScaffold(
         backgroundColor: AppColorConstants.backgroundColor,
+        // bottomNavigationBar: DashboardScreen(isHomeView: true),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -132,26 +135,8 @@ class HomeFeedState extends State<HomeFeedScreen> {
                             _homeController.selectSegment(value! as int);
                           })),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          SizedBox(
-                              height: 35,
-                              width: 35,
-                              child: ThemeIconWidget(
-                                ThemeIcon.plus,
-                                size: 25,
-                              )).ripple(() {
-                            Future.delayed(
-                              Duration.zero,
-                              () => showGeneralDialog(
-                                  context: Get.context!,
-                                  pageBuilder: (context, animation,
-                                          secondaryAnimation) =>
-                                      const ContentCreatorView()),
-                            );
-                          }),
-                          const SizedBox(
-                            width: 5,
-                          ),
                           SizedBox(
                             height: 35,
                             width: 35,
@@ -159,10 +144,12 @@ class HomeFeedState extends State<HomeFeedScreen> {
                               alignment: Alignment.center,
                               children: [
                                 ThemeIconWidget(
-                                  ThemeIcon.chat,
+                                  ThemeIcon.home,
+                                  // ThemeIcon.chat,
                                   size: 25,
                                 ).ripple(() {
-                                  Get.to(() => const ChatHistory());
+                                  // Get.to(() => const ChatHistory());
+                                  Get.to(() => const HomeFeedScreen());
                                 }),
                                 Obx(() =>
                                     _dashboardController.unreadMsgCount.value ==
@@ -180,10 +167,33 @@ class HomeFeedState extends State<HomeFeedScreen> {
                               ],
                             ),
                           ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          SizedBox(
+                              height: 35,
+                              width: 35,
+                              child: ThemeIconWidget(
+                                ThemeIcon.search,
+                                size: 25,
+                              )).ripple(() {
+                            Get.to(() => const Explore());
+                            // Future.delayed(
+                            //   Duration.zero,
+                            //   () => showGeneralDialog(
+                            //       context: Get.context!,
+                            //       pageBuilder: (context, animation,
+                            //               secondaryAnimation) =>
+                            //           const ContentCreatorView()),
+                            // );
+                          }),
                         ],
                       ),
                     ],
-                  ),
+                  ).setPadding(
+                      right: DesignConstants.horizontalPadding,
+                      top: 8,
+                      bottom: 8),
                 ),
               ],
             ).hp(16),

@@ -67,8 +67,10 @@ class EnlargeImageViewState extends State<EnlargeImageViewScreen> {
                         child: Center(
                           child: InkWell(
                               onTap: () {
-                                Get.to(() =>
-                                    OtherUserProfile(userId: model!.user.id,user: model!.user,));
+                                Get.to(() => OtherUserProfile(
+                                      userId: model!.user.id,
+                                      user: model!.user,
+                                    ));
                               },
                               child: Heading5Text(
                                 model!.user.userName,
@@ -116,8 +118,8 @@ class EnlargeImageViewState extends State<EnlargeImageViewScreen> {
                                   children: [
                                     InkWell(
                                         onTap: () => openComments(),
-                                        child: ThemeIconWidget(
-                                            ThemeIcon.message)),
+                                        child:
+                                            ThemeIconWidget(ThemeIcon.message)),
                                     InkWell(
                                       onTap: () => openComments(),
                                       child: model!.totalComment > 0

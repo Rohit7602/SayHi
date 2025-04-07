@@ -17,7 +17,7 @@ Widget backNavigationBar({required String title}) {
               child: Center(
                 child: Icon(
                   Icons.arrow_back_ios,
-                  size: 20,
+                  size: 25,
                   color: AppColorConstants.iconColor,
                 ),
               ),

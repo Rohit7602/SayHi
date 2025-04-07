@@ -9,6 +9,7 @@ import 'add_on/ui/reel/create_reel_video.dart';
 
 class CameraControllerService extends GetxController {
   late CameraController controller;
+
   /// kaushiki kumari ( 29th march 2025 )
 
   Future<void> initializeCamera(CameraLensDirection lensDirection) async {
@@ -60,7 +61,8 @@ class CameraView extends StatelessWidget {
 }
 
 class ContentCreatorView extends StatefulWidget {
-  const ContentCreatorView({super.key});
+  bool isComingFromDashboard;
+  ContentCreatorView({this.isComingFromDashboard = false, super.key});
 
   @override
   State<ContentCreatorView> createState() => _ContentCreatorViewState();
@@ -109,6 +111,7 @@ class _ContentCreatorViewState extends State<ContentCreatorView>
                   controller: tabController,
                   children: [
                     AddPostScreen(
+                      isComingFromDashboard: widget.isComingFromDashboard,
                       postType: PostType.basic,
                       postCompletionHandler: () {},
                     ),
