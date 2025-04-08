@@ -397,7 +397,7 @@ class _ReelVideoPlayerState extends State<ReelVideoPlayer> {
             child: Icon(
               Icons.favorite,
               size: 180,
-              color: Colors.white,
+              color: Colors.red,
             ),
           )
       ],

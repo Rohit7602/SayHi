@@ -47,18 +47,63 @@ class PhoneLoginScreenState extends State<PhoneLoginScreen> {
                     SizedBox(
                       height: Get.height * 0.1,
                     ),
-                    Obx(() => AppMobileTextField(
-                          controller: phone,
-                          // showDivider: true,
-                          hintText: phoneNumberString.tr,
-                          // cornerRadius: 5,
-                          countryCodeText:
-                              '+${controller.phoneCountryCode.value}',
-                          onChanged: (String value) {},
-                          countryCodeValueChanged: (String value) {
-                            controller.phoneCodeSelected(value);
-                          },
-                        )),
+
+                    TextFormField(
+                      keyboardType: TextInputType.phone,
+                      controller: phone,
+                      style: TextStyle(
+                          fontSize: FontSizes.b2,
+                          color: AppColorConstants.inputFieldTextColor),
+                      decoration: InputDecoration(
+                        fillColor: Colors.grey.shade300,
+                        filled: true,
+                        prefixIcon: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text(
+                              "+ 91",
+                              style: TextStyle(fontSize: 16),
+                            ),
+                          ],
+                        ).paddingOnly(left: 10),
+                        contentPadding: EdgeInsets.symmetric(vertical: 10)
+                            .copyWith(top: 12),
+                        border: InputBorder.none,
+                        hintStyle: TextStyle(
+                            fontSize: FontSizes.b3,
+                            color: AppColorConstants.inputFieldTextColor),
+                        hintText: phoneNumberString.tr,
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(
+                            color: AppColorConstants.themeColor,
+                          ),
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(
+                            color: AppColorConstants.themeColor,
+                          ),
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                      ),
+                    ),
+
+                    // Obx(() => AppMobileTextField(
+                    //       controller: phone,
+                    //       // showDivider: true,
+                    //       hintText: phoneNumberString.tr,
+                    //       // cornerRadius: 5,
+
+                    //       countryCodeText:
+                    //           '+${controller.phoneCountryCode.value}',
+                    //       // '+ 91',
+                    //       onChanged: (String value) {},
+                    //       countryCodeValueChanged: (String value) {
+                    //         // controller.phoneCodeSelected(value);
+                    //       },
+                    //     )),
 
                     SizedBox(
                       height: Get.height * 0.04,

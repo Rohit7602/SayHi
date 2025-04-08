@@ -43,6 +43,9 @@ class HomeFeedState extends State<HomeFeedScreen> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       loadData();
       _homeController.loadQuickLinksAccordingToSettings();
+
+      coin = _userProfileManager.user.value!.coins;
+      setState(() {});
     });
   }
 
@@ -84,6 +87,10 @@ class HomeFeedState extends State<HomeFeedScreen> {
     super.didUpdateWidget(oldWidget);
   }
 
+  final UserProfileManager _userProfileManager = Get.find();
+
+  int coin = 0;
+
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
@@ -100,40 +107,93 @@ class HomeFeedState extends State<HomeFeedScreen> {
               children: [
                 Expanded(
                   flex: 4,
-                  child: Heading4Text(
-                    AppConfigConstants.appName,
-                    weight: TextWeight.semiBold,
-                    color: AppColorConstants.themeColor,
-                    textOverflow: TextOverflow.clip,
+                  child: GestureDetector(
+                    onTapDown: (TapDownDetails details) {
+                      final offset = details.globalPosition;
+
+                      showMenu(
+                        context: context,
+                        position: RelativeRect.fromLTRB(
+                          offset.dx,
+                          offset.dy,
+                          offset.dx,
+                          offset.dy,
+                        ),
+                        items: [
+                          PopupMenuItem(
+                            value: 'all',
+                            child: Text('All'),
+                          ),
+                          PopupMenuItem(
+                            value: 'following',
+                            child: Text('Following'),
+                          ),
+                        ],
+                      ).then((value) {
+                        if (value == 'all') {
+                          _homeController.selectSegment(0);
+                          // Navigate to profile
+                        } else {
+                          _homeController.selectSegment(1);
+                        }
+                      });
+                    },
+                    child: Row(
+                      children: [
+                        Heading4Text(
+                          AppConfigConstants.appName,
+                          weight: TextWeight.semiBold,
+                          color: AppColorConstants.themeColor,
+                          textOverflow: TextOverflow.clip,
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Icon(
+                          Icons.keyboard_arrow_down_rounded,
+                          size: 30,
+                          color: AppColorConstants.themeColor,
+                        )
+                      ],
+                    ),
                   ),
                 ),
                 Expanded(
-                  flex: 8,
+                  flex: 6,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Obx(() => CupertinoSegmentedControl(
-                          groupValue: _homeController.selectedSegment.value,
-                          children: <int, Widget>{
-                            0: BodySmallText(
-                              allString.tr,
-                              color: _homeController.selectedSegment.value == 0
-                                  ? Colors.white
-                                  : null,
-                            ).hP4,
-                            1: BodySmallText(followingString.tr,
-                                    color:
-                                        _homeController.selectedSegment.value ==
-                                                1
-                                            ? Colors.white
-                                            : null)
-                                .hP4,
-                          },
-                          unselectedColor: AppColorConstants.backgroundColor,
-                          selectedColor: AppColorConstants.themeColor,
-                          onValueChanged: (value) {
-                            _homeController.selectSegment(value! as int);
-                          })),
+                      // Obx(() => CupertinoSegmentedControl(
+                      //     groupValue: _homeController.selectedSegment.value,
+                      //     children: <int, Widget>{
+                      //       0: BodySmallText(
+                      //         allString.tr,
+                      //         color: _homeController.selectedSegment.value == 0
+                      //             ? Colors.white
+                      //             : null,
+                      //       ).hP4,
+                      //       1: BodySmallText(followingString.tr,
+                      //               color:
+                      //                   _homeController.selectedSegment.value ==
+                      //                           1
+                      //                       ? Colors.white
+                      //                       : null)
+                      //           .hP4,
+                      //     },
+                      //     unselectedColor: AppColorConstants.backgroundColor,
+                      //     selectedColor: AppColorConstants.themeColor,
+                      //     onValueChanged: (value) {
+                      //       _homeController.selectSegment(value! as int);
+                      //     })),
+
+                      Text(
+                        "Coins ($coin)",
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.w500),
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [

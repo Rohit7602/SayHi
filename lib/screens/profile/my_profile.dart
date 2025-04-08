@@ -5,6 +5,7 @@ import 'package:foap/helper/imports/common_import.dart';
 import 'package:foap/helper/imports/login_signup_imports.dart';
 import 'package:foap/helper/imports/reel_imports.dart';
 import 'package:foap/model/account.dart';
+import 'package:foap/screens/dashboard/dashboard_screen.dart';
 import 'package:foap/screens/profile/sliver_app_bar.dart';
 import 'package:foap/screens/profile/update_profile.dart';
 import 'package:foap/screens/profile/user_profile_stat.dart';
@@ -34,6 +35,7 @@ class MyProfileState extends State<MyProfile> {
   final SettingsController _settingsController = Get.find();
   final UserProfileManager _userProfileManager = Get.find();
   final NotificationController _notificationController = Get.find();
+  final DashboardController _dashboardController = Get.find();
 
   List<String> tabs = [
     postsString.tr,
@@ -298,12 +300,44 @@ class MyProfileState extends State<MyProfile> {
                   : const SizedBox(width: 50),
               Row(
                 children: [
+                  SizedBox(
+                    height: 35,
+                    width: 35,
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        ThemeIconWidget(
+                          ThemeIcon.home,
+                          // ThemeIcon.chat,
+                          size: 25,
+                        ).ripple(() {
+                          setState(() {
+                            _dashboardController.currentIndex.value = 5;
+                          });
+                        }),
+                        Obx(() => _dashboardController.unreadMsgCount.value == 0
+                            ? Container()
+                            : Positioned(
+                                top: 0,
+                                right: 5,
+                                child: Container(
+                                  color: AppColorConstants.red,
+                                  height: 10,
+                                  width: 10,
+                                ).circular,
+                              ))
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 20,
+                  ),
                   Obx(() => Stack(
                         children: [
                           ThemeIconWidget(
                             ThemeIcon.notification,
                             size: 25,
-                            color: AppColorConstants.themeColor,
+                            color: AppColorConstants.blackColor,
                           )
                               .rp(_notificationController
                                           .unreadNotificationCount.value >
@@ -320,7 +354,7 @@ class MyProfileState extends State<MyProfile> {
                                 right: 0,
                                 top: 0,
                                 child: Container(
-                                  color: AppColorConstants.themeColor,
+                                  color: AppColorConstants.blackColor,
                                   child: Center(
                                     child: Text(
                                       _notificationController
@@ -341,7 +375,7 @@ class MyProfileState extends State<MyProfile> {
                   ThemeIconWidget(
                     ThemeIcon.setting,
                     size: 25,
-                    color: AppColorConstants.themeColor,
+                    color: AppColorConstants.blackColor,
                   ).ripple(() {
                     Get.to(() => const Settings());
                   })

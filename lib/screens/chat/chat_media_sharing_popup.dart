@@ -115,7 +115,12 @@ class _ChatMediaSharingOptionPopupState
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: AppColorConstants.backgroundColor,
+      margin: EdgeInsets.only(
+          left: MediaQuery.of(context).size.width * 0.5, bottom: 20, right: 20),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        color: AppColorConstants.backgroundColor,
+      ),
       child: ListView.separated(
         physics: NeverScrollableScrollPhysics(),
         shrinkWrap: true,

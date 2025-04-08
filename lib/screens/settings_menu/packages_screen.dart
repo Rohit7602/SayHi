@@ -1,5 +1,6 @@
 import 'package:foap/helper/imports/common_import.dart';
 import 'package:foap/helper/imports/setting_imports.dart';
+import 'package:foap/screens/dashboard/dashboard_screen.dart';
 import '../../controllers/misc/subscription_packages_controller.dart';
 
 class PackagesScreen extends StatefulWidget {
@@ -13,6 +14,7 @@ class PackagesScreen extends StatefulWidget {
 class PackagesScreenState extends State<PackagesScreen> {
   final SubscriptionPackageController packageController = Get.find();
   final SettingsController settingsController = Get.find();
+  final DashboardController _dashboardController = Get.find();
 
   @override
   void initState() {
@@ -31,11 +33,17 @@ class PackagesScreenState extends State<PackagesScreen> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      backgroundColor: AppColorConstants.backgroundColor,
+      backgroundColor: AppColorConstants.whiteColor,
       appBar: widget.isComingFromDashboard
           ? AppBar(
+              leading: IconButton(
+                icon: const Icon(Icons.arrow_back_ios),
+                onPressed: () {
+                  _dashboardController.currentIndex.value = 5;
+                },
+              ),
               centerTitle: true,
-              backgroundColor: AppColorConstants.cardColor,
+              backgroundColor: AppColorConstants.whiteColor,
               title: Text(packagesString.tr),
             )
           : null,
